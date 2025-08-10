@@ -33,7 +33,7 @@ export default function IntroPage({ onLocationGranted, onLocationDenied }: Intro
           }
         )
       })
-      
+
       onLocationGranted()
     } catch (error) {
       console.warn('Location permission denied:', error)
@@ -47,8 +47,8 @@ export default function IntroPage({ onLocationGranted, onLocationDenied }: Intro
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <div className="mx-auto mb-4 p-3 bg-blue-100 rounded-full w-fit">
-            <MapPin className="w-8 h-8 text-blue-600" />
+          <div className="mx-auto mb-4 p-3 bg-primary rounded-full w-fit">
+            <MapPin className="w-8 h-8 text-primary-foreground" />
           </div>
           <CardTitle className="text-2xl font-bold">Tourist Guide</CardTitle>
           <p className="text-muted-foreground mt-2">
@@ -57,29 +57,29 @@ export default function IntroPage({ onLocationGranted, onLocationDenied }: Intro
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="space-y-4">
-            <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-lg border border-blue-200">
-              <Navigation className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+            <div className="flex items-start gap-3 p-4 bg-colonial-success-light rounded-lg border border-colonial-success">
+              <Navigation className="w-5 h-5 text-colonial-success-dark mt-0.5 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold text-blue-900">Location Access</h3>
-                <p className="text-sm text-blue-700 mt-1">
+                <h3 className="font-semibold text-colonial-success-dark">Location Access</h3>
+                <p className="text-sm text-colonial-success-dark mt-1">
                   We'll request access to your location to show nearby places and provide personalized recommendations.
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-3 p-4 bg-green-50 rounded-lg border border-green-200">
-              <AlertCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+            <div className="flex items-start gap-3 p-4 bg-colonial-success-light rounded-lg border border-colonial-success">
+              <AlertCircle className="w-5 h-5 text-colonial-success-dark mt-0.5 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold text-green-900">Your Privacy</h3>
-                <p className="text-sm text-green-700 mt-1">
+                <h3 className="font-semibold text-colonial-success-dark">Your Privacy</h3>
+                <p className="text-sm text-colonial-success-dark mt-1">
                   Your location data is only used to center the map and is not stored or shared.
                 </p>
               </div>
             </div>
           </div>
 
-          <Button 
-            onClick={requestLocation} 
+          <Button
+            onClick={requestLocation}
             disabled={isRequesting}
             className="w-full"
             size="lg"

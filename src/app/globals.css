@@ -42,6 +42,13 @@
   --chart-3: 16 35% 15%; /* Deep brown */
   --chart-4: 34 29% 58%; /* Warm beige */
   --chart-5: 39 39% 69%; /* Stone tan */
+  
+  /* Additional colonial UI colors */
+  --colonial-accent-light: 43 45% 88%; /* Light terracotta for backgrounds */
+  --colonial-accent-border: 43 35% 70%; /* Medium terracotta for borders */
+  --colonial-success-light: 34 35% 85%; /* Warm sage for success states */
+  --colonial-success: 34 45% 45%; /* Deeper sage green */
+  --colonial-success-dark: 34 55% 25%; /* Dark sage for text */
   --radius: 0.5rem;
 }
 
@@ -70,6 +77,11 @@
   --color-chart-3: hsl(var(--chart-3));
   --color-chart-4: hsl(var(--chart-4));
   --color-chart-5: hsl(var(--chart-5));
+  --color-colonial-accent-light: hsl(var(--colonial-accent-light));
+  --color-colonial-accent-border: hsl(var(--colonial-accent-border));
+  --color-colonial-success-light: hsl(var(--colonial-success-light));
+  --color-colonial-success: hsl(var(--colonial-success));
+  --color-colonial-success-dark: hsl(var(--colonial-success-dark));
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
