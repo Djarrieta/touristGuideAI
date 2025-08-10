@@ -61,14 +61,7 @@ export default function MapComponent() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto p-4">
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold mb-2">Tourist Guide - Interactive Map</h1>
-          <p className="text-muted-foreground">
-            Discover amazing places! Click on markers to view details or select a place from the list.
-          </p>
-        </div>
-
+      <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Map */}
           <div className="lg:col-span-3">
