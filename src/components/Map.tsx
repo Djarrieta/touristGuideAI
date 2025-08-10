@@ -1,0 +1,99 @@
+"use client"
+
+import { useCallback, useRef } from "react"
+import { GoogleMap, LoadScript, Marker, InfoWindow } from "@react-google-maps/api"
+import { useUserLocation } from "../hooks/useUserLocation"
+
+const containerStyle = {
+  width: "100%",
+  height: "600px",
+}
+
+// Default fallback coordinates (Medellín, Colombia)
+const defaultCenter = {
+  lat: 6.556244, 
+  lng: -75.826732
+}
+
+interface MarkerData {
+  id: string
+  position: {
+    lat: number
+    lng: number
+  }
+  title: string
+  description: string
+}
+
+interface MapProps {
+  markers: MarkerData[]
+  selectedMarker: MarkerData | null
+  onMarkerClick: (marker: MarkerData) => void
+  onCloseInfoWindow: () => void
+  onMapLoad?: (map: google.maps.Map) => void
+}
+
+export default function Map({ 
+  markers, 
+  selectedMarker, 
+  onMarkerClick, 
+  onCloseInfoWindow,
+  onMapLoad 
+}: MapProps) {
+  const mapRef = useRef<google.maps.Map | null>(null)
+  
+  // Get user's current location using custom hook
+  const { location: userLocation } = useUserLocation()
+
+  const onLoad = useCallback((map: google.maps.Map) => {
+    mapRef.current = map
+    onMapLoad?.(map)
+  }, [onMapLoad])
+
+  const onUnmount = useCallback(() => {
+    mapRef.current = null
+  }, [])
+
+  return (
+    <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={userLocation || defaultCenter}
+        zoom={12}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+        options={{
+          streetViewControl: false,
+          mapTypeControl: false,
+          fullscreenControl: false,
+          styles: [
+            {
+              featureType: "poi",
+              elementType: "labels",
+              stylers: [{ visibility: "off" }],
+            },
+          ],
+        }}
+      >
+        {markers.map((marker) => (
+          <Marker
+            key={marker.id}
+            position={marker.position}
+            onClick={() => onMarkerClick(marker)}
+          />
+        ))}
+
+        {selectedMarker && (
+          <InfoWindow position={selectedMarker.position} onCloseClick={onCloseInfoWindow}>
+            <div className="p-2">
+              <h3 className="font-semibold text-lg text-gray-800">{selectedMarker.title}</h3>
+              <p className="text-sm text-gray-600">{selectedMarker.description}</p>
+            </div>
+          </InfoWindow>
+        )}
+      </GoogleMap>
+    </LoadScript>
+  )
+}
+
+export type { MarkerData }
