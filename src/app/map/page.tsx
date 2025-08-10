@@ -1,13 +1,10 @@
 "use client"
 
-import { useState, useRef } from "react"
-import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
-import Map, { type MarkerData } from "@/components/Map"
-import PlacesList from "@/components/PlacesList"
 import IntroPage from "@/components/IntroPage"
 import LocationDenied from "@/components/LocationDenied"
-import { Button } from "@/components/ui/button"
+import Map, { type MarkerData } from "@/components/Map"
+import PlacesList from "@/components/PlacesList"
+import { useRef, useState } from "react"
 
 const mockMarkers: MarkerData[] = [
   {

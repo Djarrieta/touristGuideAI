@@ -2,8 +2,8 @@
 
 import { useCallback, useRef } from "react"
 import { GoogleMap, LoadScript, Marker, InfoWindow } from "@react-google-maps/api"
-import { useUserLocation } from "../hooks/useUserLocation"
-import { generateMapStyles } from "../lib/colors"
+import { useUserLocation } from "./useUserLocation"
+import { generateMapStyles } from "../../lib/colors"
 
 const containerStyle = {
   width: "100%",
