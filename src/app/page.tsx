@@ -3,6 +3,8 @@
 import { useState, useRef } from "react"
 import Map, { type MarkerData } from "@/components/Map"
 import PlacesList from "@/components/PlacesList"
+import IntroPage from "@/components/IntroPage"
+import LocationDenied from "@/components/LocationDenied"
 
 const mockMarkers: MarkerData[] = [
   {
@@ -19,10 +21,25 @@ const mockMarkers: MarkerData[] = [
   },
 ]
 
+type LocationState = 'intro' | 'granted' | 'denied'
+
 export default function Home() {
   const [markers] = useState<MarkerData[]>(mockMarkers)
   const [selectedMarker, setSelectedMarker] = useState<MarkerData | null>(null)
+  const [locationState, setLocationState] = useState<LocationState>('intro')
   const mapRef = useRef<google.maps.Map | null>(null)
+
+  const handleLocationGranted = () => {
+    setLocationState('granted')
+  }
+
+  const handleLocationDenied = () => {
+    setLocationState('denied')
+  }
+
+  const handleRetryLocation = () => {
+    setLocationState('intro')
+  }
 
   const handleMarkerClick = (marker: MarkerData) => {
     setSelectedMarker(marker)
@@ -44,9 +61,29 @@ export default function Home() {
     mapRef.current = map
   }
 
+  // Show intro page initially
+  if (locationState === 'intro') {
+    return (
+      <IntroPage 
+        onLocationGranted={handleLocationGranted}
+        onLocationDenied={handleLocationDenied}
+      />
+    )
+  }
+
+  // Show sorry message if location denied
+  if (locationState === 'denied') {
+    return (
+      <LocationDenied 
+        onRetry={handleRetryLocation}
+      />
+    )
+  }
+
+  // Show main app if location granted
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto">
+      <div className="container mx-auto p-6">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Map */}
           <div className="lg:col-span-3">

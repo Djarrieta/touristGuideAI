@@ -42,7 +42,7 @@ export default function Map({
 }: MapProps) {
   const mapRef = useRef<google.maps.Map | null>(null)
   
-  // Get user's current location using custom hook
+  // Get user's current location using custom hook (silent mode)
   const { location: userLocation } = useUserLocation()
 
   const onLoad = useCallback((map: google.maps.Map) => {
