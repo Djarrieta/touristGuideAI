@@ -67,107 +67,123 @@ export default function Map({
           mapTypeControl: false,
           fullscreenControl: false,
           styles: [
-            // Overall map background - light neutral tone
+            // Overall map background - aged parchment/paper color
             {
               featureType: "all",
               elementType: "geometry",
-              stylers: [{ color: "#f5f5f5" }],
+              stylers: [{ color: "#f4f1e8" }],
             },
-            // Water areas - soft blue
+            // Water areas - vintage blue-green like old maps
             {
               featureType: "water",
               elementType: "geometry",
-              stylers: [{ color: "#a8d5e5" }],
+              stylers: [{ color: "#7fb3d1" }],
             },
             {
               featureType: "water",
               elementType: "labels.text.fill",
-              stylers: [{ color: "#2c5f7a" }],
+              stylers: [{ color: "#2c4f66" }],
             },
-            // Landscape/terrain - warm light gray
+            {
+              featureType: "water",
+              elementType: "labels.text.stroke",
+              stylers: [{ color: "#f4f1e8" }, { weight: 2 }],
+            },
+            // Landscape/terrain - warm aged paper tone
             {
               featureType: "landscape",
               elementType: "geometry",
-              stylers: [{ color: "#f9f9f9" }],
+              stylers: [{ color: "#f0ead6" }],
             },
-            // Main roads - modern blue
+            // Main roads - colonial brick/terracotta
             {
               featureType: "road.highway",
               elementType: "geometry",
-              stylers: [{ color: "#4a90e2" }],
+              stylers: [{ color: "#b8860b" }],
             },
             {
               featureType: "road.highway",
               elementType: "geometry.stroke",
-              stylers: [{ color: "#3a7bc8" }, { weight: 1 }],
+              stylers: [{ color: "#8b6914" }, { weight: 2 }],
             },
-            // Arterial roads - medium gray-blue
+            // Arterial roads - aged stone color
             {
               featureType: "road.arterial",
               elementType: "geometry",
-              stylers: [{ color: "#e8e8e8" }],
+              stylers: [{ color: "#d2b48c" }],
             },
             {
               featureType: "road.arterial",
               elementType: "geometry.stroke",
-              stylers: [{ color: "#d0d0d0" }],
+              stylers: [{ color: "#a0522d" }, { weight: 1 }],
             },
-            // Local roads - light gray
+            // Local roads - pale colonial stone
             {
               featureType: "road.local",
               elementType: "geometry",
-              stylers: [{ color: "#ffffff" }],
+              stylers: [{ color: "#e6dcc6" }],
             },
             {
               featureType: "road.local",
               elementType: "geometry.stroke",
-              stylers: [{ color: "#e0e0e0" }],
+              stylers: [{ color: "#c19a6b" }, { weight: 0.5 }],
             },
-            // Road labels - dark gray for readability
+            // Road labels - deep colonial brown with serif font
             {
               featureType: "road",
               elementType: "labels.text.fill",
-              stylers: [{ color: "#333333" }],
+              stylers: [
+                { color: "#5d4037" },
+                { "font-family": "serif" },
+                { "font-size": "12px" },
+                { "font-weight": "normal" }
+              ],
             },
             {
               featureType: "road",
               elementType: "labels.text.stroke",
-              stylers: [{ color: "#ffffff" }, { weight: 2 }],
+              stylers: [{ color: "#f4f1e8" }, { weight: 3 }],
             },
-            // Administrative boundaries - subtle
+            // Administrative boundaries - colonial gold
             {
               featureType: "administrative",
               elementType: "geometry.stroke",
-              stylers: [{ color: "#c0c0c0" }, { weight: 0.5 }],
+              stylers: [{ color: "#cd853f" }, { weight: 1.5 }],
             },
-            // Administrative labels - elegant dark blue
+            // Administrative labels - rich Spanish brown
             {
               featureType: "administrative",
               elementType: "labels.text.fill",
-              stylers: [{ color: "#2c3e50" }],
+              stylers: [{ color: "#3e2723" }],
             },
             {
               featureType: "administrative",
               elementType: "labels.text.stroke",
-              stylers: [{ color: "#ffffff" }, { weight: 1 }],
+              stylers: [{ color: "#f4f1e8" }, { weight: 3 }],
             },
-            // Building outlines - very subtle
+            // Building outlines - adobe/clay color
             {
               featureType: "landscape.man_made",
               elementType: "geometry",
-              stylers: [{ color: "#f0f0f0" }],
+              stylers: [{ color: "#ede0d3" }],
             },
-            // Natural features - soft green tones
+            // Natural features - vintage green like old vegetation on maps
             {
               featureType: "landscape.natural",
               elementType: "geometry",
-              stylers: [{ color: "#f5f7f5" }],
+              stylers: [{ color: "#e8dcc0" }],
             },
-            // Parks (even though hidden, style for consistency)
+            // Parks and natural areas - faded colonial green
             {
               featureType: "landscape.natural.landcover",
               elementType: "geometry",
-              stylers: [{ color: "#e8f5e8" }],
+              stylers: [{ color: "#d7c7a8" }],
+            },
+            // Add vintage terrain effect
+            {
+              featureType: "landscape.natural.terrain",
+              elementType: "geometry",
+              stylers: [{ color: "#e6d7c3" }],
             },
             // Hide all points of interest
             {
