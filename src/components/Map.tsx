@@ -67,6 +67,108 @@ export default function Map({
           mapTypeControl: false,
           fullscreenControl: false,
           styles: [
+            // Overall map background - light neutral tone
+            {
+              featureType: "all",
+              elementType: "geometry",
+              stylers: [{ color: "#f5f5f5" }],
+            },
+            // Water areas - soft blue
+            {
+              featureType: "water",
+              elementType: "geometry",
+              stylers: [{ color: "#a8d5e5" }],
+            },
+            {
+              featureType: "water",
+              elementType: "labels.text.fill",
+              stylers: [{ color: "#2c5f7a" }],
+            },
+            // Landscape/terrain - warm light gray
+            {
+              featureType: "landscape",
+              elementType: "geometry",
+              stylers: [{ color: "#f9f9f9" }],
+            },
+            // Main roads - modern blue
+            {
+              featureType: "road.highway",
+              elementType: "geometry",
+              stylers: [{ color: "#4a90e2" }],
+            },
+            {
+              featureType: "road.highway",
+              elementType: "geometry.stroke",
+              stylers: [{ color: "#3a7bc8" }, { weight: 1 }],
+            },
+            // Arterial roads - medium gray-blue
+            {
+              featureType: "road.arterial",
+              elementType: "geometry",
+              stylers: [{ color: "#e8e8e8" }],
+            },
+            {
+              featureType: "road.arterial",
+              elementType: "geometry.stroke",
+              stylers: [{ color: "#d0d0d0" }],
+            },
+            // Local roads - light gray
+            {
+              featureType: "road.local",
+              elementType: "geometry",
+              stylers: [{ color: "#ffffff" }],
+            },
+            {
+              featureType: "road.local",
+              elementType: "geometry.stroke",
+              stylers: [{ color: "#e0e0e0" }],
+            },
+            // Road labels - dark gray for readability
+            {
+              featureType: "road",
+              elementType: "labels.text.fill",
+              stylers: [{ color: "#333333" }],
+            },
+            {
+              featureType: "road",
+              elementType: "labels.text.stroke",
+              stylers: [{ color: "#ffffff" }, { weight: 2 }],
+            },
+            // Administrative boundaries - subtle
+            {
+              featureType: "administrative",
+              elementType: "geometry.stroke",
+              stylers: [{ color: "#c0c0c0" }, { weight: 0.5 }],
+            },
+            // Administrative labels - elegant dark blue
+            {
+              featureType: "administrative",
+              elementType: "labels.text.fill",
+              stylers: [{ color: "#2c3e50" }],
+            },
+            {
+              featureType: "administrative",
+              elementType: "labels.text.stroke",
+              stylers: [{ color: "#ffffff" }, { weight: 1 }],
+            },
+            // Building outlines - very subtle
+            {
+              featureType: "landscape.man_made",
+              elementType: "geometry",
+              stylers: [{ color: "#f0f0f0" }],
+            },
+            // Natural features - soft green tones
+            {
+              featureType: "landscape.natural",
+              elementType: "geometry",
+              stylers: [{ color: "#f5f7f5" }],
+            },
+            // Parks (even though hidden, style for consistency)
+            {
+              featureType: "landscape.natural.landcover",
+              elementType: "geometry",
+              stylers: [{ color: "#e8f5e8" }],
+            },
             // Hide all points of interest
             {
               featureType: "poi",
@@ -124,28 +226,10 @@ export default function Map({
             // Hide transit stations
             {
               featureType: "transit",
-              elementType: "labels",
+              elementType: "all",
               stylers: [{ visibility: "off" }],
             },
-            // Keep road labels visible for street names
-            {
-              featureType: "road",
-              elementType: "labels",
-              stylers: [{ visibility: "on" }],
-            },
-            // Keep administrative labels (city, country names)
-            {
-              featureType: "administrative",
-              elementType: "labels",
-              stylers: [{ visibility: "on" }],
-            },
-            // Keep water labels
-            {
-              featureType: "water",
-              elementType: "labels",
-              stylers: [{ visibility: "on" }],
-            },
-          ],
+          ]
         }}
       >
         {markers.map((marker) => (
