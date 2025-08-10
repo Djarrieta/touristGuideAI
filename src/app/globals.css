@@ -2,7 +2,7 @@
 
 :root {
   /* Colonial Theme Colors - Centralized from src/lib/colors.ts */
-  --background: 46 27% 94%; /* #f4f1e8 - Aged parchment */
+  --background: 47 33% 91%; /* #f0ead6 - Warm aged paper */
   --foreground: 16 35% 15%; /* #3e2723 - Deep colonial brown */
   --card: 47 33% 91%; /* #f0ead6 - Warm aged paper */
   --card-foreground: 16 35% 15%; /* #3e2723 - Colonial brown text */

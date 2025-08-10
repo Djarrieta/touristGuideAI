@@ -33,7 +33,7 @@ export const PALETTE = {
 
 export const THEME_COLORS = {
   // Base
-  background: PALETTE.parchment,
+  background: PALETTE.agedPaper,
   foreground: PALETTE.deepBrown,
   // Card
   card: PALETTE.agedPaper,
@@ -117,7 +117,7 @@ export const PALETTE_HSL = {
 } as const;
 
 export const THEME_HSL = {
-  background: PALETTE_HSL.parchment,
+  background: PALETTE_HSL.agedPaper,
   foreground: PALETTE_HSL.deepBrown,
   card: PALETTE_HSL.agedPaper,
   cardForeground: PALETTE_HSL.deepBrown,

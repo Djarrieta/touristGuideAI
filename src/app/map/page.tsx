@@ -9,15 +9,33 @@ import { useRef, useState } from "react"
 const mockMarkers: MarkerData[] = [
   {
     id: "1",
-    position: { lat: 6.556991, lng: -75.825779 },
-    title: "Igleasia principal",
-    description: "The Big Apple 1",
+    position: { lat: 6.1550, lng: -75.3739 },
+    title: "Parque Principal de Rionegro",
+    description: "El corazón de la ciudad, rodeado de historia y comercio.",
   },
   {
     id: "2",
-    position: { lat: 6.554982, lng: -75.825780 },
-    title: "Igleasia principal 2",
-    description: "The Big Apple 2",
+    position: { lat: 6.1545, lng: -75.3742 },
+    title: "Museo de Arte Religioso",
+    description: "Conserva una importante colección de arte religioso de la región.",
+  },
+  {
+    id: "3",
+    position: { lat: 6.1555, lng: -75.3735 },
+    title: "Catedral San Nicolás el Magno",
+    description: "Imponente catedral de estilo neoclásico.",
+  },
+  {
+    id: "4",
+    position: { lat: 6.1520, lng: -75.3750 },
+    title: "Puente Mejía",
+    description: "Histórico puente de calicanto sobre el río Negro.",
+  },
+  {
+    id: "5",
+    position: { lat: 6.1333, lng: -75.4000 },
+    title: "Tutucán",
+    description: "Réplica de un pueblo tradicional antioqueño.",
   },
 ]
 
@@ -28,10 +46,6 @@ export default function MapPage() {
   const [selectedMarker, setSelectedMarker] = useState<MarkerData | null>(null)
   const [locationState, setLocationState] = useState<LocationState>('intro')
   const mapRef = useRef<google.maps.Map | null>(null)
-
-
-
-
 
   const handlePlaceClick = (marker: MarkerData) => {
     if (mapRef.current) {

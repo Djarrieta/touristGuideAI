@@ -12,8 +12,8 @@ const containerStyle = {
 
 // Default fallback coordinates (Medellín, Colombia)
 const defaultCenter = {
-  lat: 6.556244, 
-  lng: -75.826732
+  lat: 6.1551, 
+  lng: -75.3738
 }
 
 interface MarkerData {
