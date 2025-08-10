@@ -2,111 +2,141 @@
  * Colonial Theme Color Palette
  * Centralized color definitions for consistent theming across components and map
  */
+export const PALETTE = {
+  parchment: '#f4f1e8', // Aged parchment
+  deepBrown: '#3e2723', // Deep colonial brown
+  agedPaper: '#f0ead6', // Warm aged paper
+  gold: '#b8860b', // Colonial gold
+  warmStone: '#d2b48c', // Warm stone
+  paleStone: '#e6dcc6', // Pale colonial stone
+  mediumBrown: '#5d4037', // Medium brown
+  agedStone: '#d2b48c', // Aged stone
+  redClay: '#b8441f', // Colonial red clay
+  warmBeige: '#c19a6b', // Warm beige
+  lightTerracotta: '#f3e6d3', // Light terracotta
+  mediumTerracotta: '#d4a574', // Medium terracotta
+  warmSageLight: '#e8e2d6', // Warm sage light
+  deepSage: '#8b8264', // Deeper sage green
+  darkSage: '#5d5a47', // Dark sage
+  vintageBlueGreen: '#7fb3d1', // Vintage blue-green
+  deepColonialBlue: '#2c4f66', // Deep colonial blue
+  darkerGold: '#8b6914', // Darker gold
+  lightStone: '#e8e8e8', // Light stone
+  siennaBrown: '#a0522d', // Sienna brown
+  white: '#ffffff', // White
+  colonialGold: '#cd853f', // Colonial gold boundaries
+  adobeClay: '#ede0d3', // Adobe/clay color
+  vintageEarth: '#e8dcc0', // Vintage earth tone
+  fadedColonialGreen: '#d7c7a8', // Faded colonial green
+  vintageTerrain: '#e6d7c3', // Vintage terrain
+} as const;
 
-export const COLONIAL_COLORS = {
-  // Base Colors
-  background: '#f4f1e8', // Aged parchment
-  foreground: '#3e2723', // Deep colonial brown
-  
-  // Card Colors  
-  card: '#f0ead6', // Warm aged paper
-  cardForeground: '#3e2723', // Colonial brown text
-  
-  // Primary Colors (Colonial Gold/Terracotta)
-  primary: '#b8860b', // Colonial gold
-  primaryForeground: '#f4f1e8', // Parchment for contrast
-  
-  // Secondary Colors (Warm Stone)
-  secondary: '#d2b48c', // Warm stone
-  secondaryForeground: '#3e2723', // Deep brown
-  
-  // Utility Colors
-  muted: '#e6dcc6', // Pale colonial stone
-  mutedForeground: '#5d4037', // Medium brown
-  accent: '#d2b48c', // Aged stone
-  destructive: '#b8441f', // Colonial red clay
-  destructiveForeground: '#f4f1e8', // Parchment
-  border: '#c19a6b', // Warm beige
-  
-  // Extended Colonial Palette
-  colonialAccentLight: '#f3e6d3', // Light terracotta
-  colonialAccentBorder: '#d4a574', // Medium terracotta
-  colonialSuccessLight: '#e8e2d6', // Warm sage light
-  colonialSuccess: '#8b8264', // Deeper sage green
-  colonialSuccessDark: '#5d5a47', // Dark sage
-  
+export const THEME_COLORS = {
+  // Base
+  background: PALETTE.parchment,
+  foreground: PALETTE.deepBrown,
+  // Card
+  card: PALETTE.agedPaper,
+  cardForeground: PALETTE.deepBrown,
+  // Primary
+  primary: PALETTE.gold,
+  primaryForeground: PALETTE.parchment,
+  // Secondary
+  secondary: PALETTE.warmStone,
+  secondaryForeground: PALETTE.deepBrown,
+  // Muted
+  muted: PALETTE.paleStone,
+  mutedForeground: PALETTE.mediumBrown,
+  // Accent
+  accent: PALETTE.agedStone,
+  // Destructive
+  destructive: PALETTE.redClay,
+  destructiveForeground: PALETTE.parchment,
+  // Border
+  border: PALETTE.warmBeige,
+
   // Chart/Accent Colors
-  chart1: '#b8860b', // Terracotta gold
-  chart2: '#b8441f', // Colonial red
-  chart3: '#3e2723', // Deep brown
-  chart4: '#c19a6b', // Warm beige
-  chart5: '#d2b48c', // Stone tan
-} as const
+  chart1: PALETTE.gold,
+  chart2: PALETTE.redClay,
+  chart3: PALETTE.deepBrown,
+  chart4: PALETTE.warmBeige,
+  chart5: PALETTE.warmStone,
 
-/**
- * Google Maps specific color mapping
- * These hex colors correspond to our colonial theme
- */
-export const MAP_COLORS = {
-  // Map Background & Terrain
-  mapBackground: COLONIAL_COLORS.background,
-  landscape: COLONIAL_COLORS.card,
-  
-  // Water Features
-  water: '#7fb3d1', // Vintage blue-green
-  waterLabels: '#2c4f66', // Deep colonial blue
-  
-  // Roads
-  highway: COLONIAL_COLORS.primary, // Colonial gold
-  highwayStroke: '#8b6914', // Darker gold
-  arterial: '#e8e8e8', // Light stone
-  arterialStroke: '#a0522d', // Sienna brown
-  localRoad: '#ffffff', // White
-  localRoadStroke: COLONIAL_COLORS.border, // Warm beige
-  
-  // Labels & Text
-  roadLabels: COLONIAL_COLORS.foreground, // Deep brown
-  roadLabelsStroke: COLONIAL_COLORS.background, // Parchment outline
-  adminLabels: COLONIAL_COLORS.foreground, // Deep brown
-  adminLabelsStroke: COLONIAL_COLORS.background, // Parchment outline
-  adminBoundaries: '#cd853f', // Colonial gold boundaries
-  
-  // Built Environment
-  buildings: '#ede0d3', // Adobe/clay color
-  naturalLandscape: '#e8dcc0', // Vintage earth tone
-  naturalLandcover: '#d7c7a8', // Faded colonial green
-  terrain: '#e6d7c3', // Vintage terrain
-} as const
+  // Map Colors
+  mapBackground: PALETTE.parchment,
+  landscape: PALETTE.agedPaper,
+  water: PALETTE.vintageBlueGreen,
+  waterLabels: PALETTE.deepColonialBlue,
+  highway: PALETTE.gold,
+  highwayStroke: PALETTE.darkerGold,
+  arterial: PALETTE.lightStone,
+  arterialStroke: PALETTE.siennaBrown,
+  localRoad: PALETTE.white,
+  localRoadStroke: PALETTE.warmBeige,
+  roadLabels: PALETTE.deepBrown,
+  roadLabelsStroke: PALETTE.parchment,
+  adminLabels: PALETTE.deepBrown,
+  adminLabelsStroke: PALETTE.parchment,
+  adminBoundaries: PALETTE.colonialGold,
+  buildings: PALETTE.adobeClay,
+  naturalLandscape: PALETTE.vintageEarth,
+  naturalLandcover: PALETTE.fadedColonialGreen,
+  terrain: PALETTE.vintageTerrain,
+} as const;
 
 /**
  * HSL values for Tailwind CSS custom properties
  */
-export const HSL_COLORS = {
-  background: '46 27% 94%',
-  foreground: '16 35% 15%',
-  card: '47 33% 91%',
-  cardForeground: '16 35% 15%',
-  primary: '43 89% 38%',
-  primaryForeground: '46 27% 94%',
-  secondary: '39 39% 69%',
-  secondaryForeground: '16 35% 15%',
-  muted: '44 24% 84%',
-  mutedForeground: '16 12% 30%',
-  accent: '39 39% 69%',
-  destructive: '14 89% 42%',
-  destructiveForeground: '46 27% 94%',
-  border: '34 29% 58%',
-  colonialAccentLight: '43 45% 88%',
-  colonialAccentBorder: '43 35% 70%',
-  colonialSuccessLight: '34 35% 85%',
-  colonialSuccess: '34 45% 45%',
-  colonialSuccessDark: '34 55% 25%',
-  chart1: '43 89% 38%',
-  chart2: '14 89% 42%',
-  chart3: '16 35% 15%',
-  chart4: '34 29% 58%',
-  chart5: '39 39% 75%',
-} as const
+export const PALETTE_HSL = {
+  parchment: '46 27% 94%',
+  deepBrown: '16 35% 15%',
+  agedPaper: '47 33% 91%',
+  gold: '43 89% 38%',
+  warmStone: '39 39% 69%',
+  paleStone: '44 24% 84%',
+  mediumBrown: '16 12% 30%',
+  agedStone: '39 39% 69%',
+  redClay: '14 89% 42%',
+  warmBeige: '34 29% 58%',
+  lightTerracotta: '43 45% 88%',
+  mediumTerracotta: '43 35% 70%',
+  warmSageLight: '34 35% 85%',
+  deepSage: '34 45% 45%',
+  darkSage: '34 55% 25%',
+  vintageBlueGreen: '202 45% 65%',
+  deepColonialBlue: '205 40% 29%',
+  darkerGold: '43 75% 31%',
+  lightStone: '0 0% 91%',
+  siennaBrown: '25 57% 40%',
+  white: '0 0% 100%',
+  colonialGold: '30 63% 52%',
+  adobeClay: '33 43% 88%',
+  vintageEarth: '44 38% 83%',
+  fadedColonialGreen: '45 38% 75%',
+  vintageTerrain: '39 38% 83%',
+} as const;
+
+export const THEME_HSL = {
+  background: PALETTE_HSL.parchment,
+  foreground: PALETTE_HSL.deepBrown,
+  card: PALETTE_HSL.agedPaper,
+  cardForeground: PALETTE_HSL.deepBrown,
+  primary: PALETTE_HSL.gold,
+  primaryForeground: PALETTE_HSL.parchment,
+  secondary: PALETTE_HSL.warmStone,
+  secondaryForeground: PALETTE_HSL.deepBrown,
+  muted: PALETTE_HSL.paleStone,
+  mutedForeground: PALETTE_HSL.mediumBrown,
+  accent: PALETTE_HSL.agedStone,
+  destructive: PALETTE_HSL.redClay,
+  destructiveForeground: PALETTE_HSL.parchment,
+  border: PALETTE_HSL.warmBeige,
+  chart1: PALETTE_HSL.gold,
+  chart2: PALETTE_HSL.redClay,
+  chart3: PALETTE_HSL.deepBrown,
+  chart4: PALETTE_HSL.warmBeige,
+  chart5: PALETTE_HSL.warmStone,
+} as const;
 
 /**
  * Generate Google Maps styles using the colonial color palette
@@ -118,67 +148,67 @@ export function generateMapStyles(): google.maps.MapTypeStyle[] {
     {
       featureType: "all",
       elementType: "geometry",
-      stylers: [{ color: MAP_COLORS.mapBackground }],
+      stylers: [{ color: THEME_COLORS.mapBackground }],
     },
     // Water features
     {
       featureType: "water",
       elementType: "geometry",
-      stylers: [{ color: MAP_COLORS.water }],
+      stylers: [{ color: THEME_COLORS.water }],
     },
     {
       featureType: "water",
       elementType: "labels.text.fill",
-      stylers: [{ color: MAP_COLORS.waterLabels }],
+      stylers: [{ color: THEME_COLORS.waterLabels }],
     },
     {
       featureType: "water",
       elementType: "labels.text.stroke",
-      stylers: [{ color: MAP_COLORS.roadLabelsStroke }, { weight: 2 }],
+      stylers: [{ color: THEME_COLORS.roadLabelsStroke }, { weight: 2 }],
     },
     // Landscape/terrain
     {
       featureType: "landscape",
       elementType: "geometry",
-      stylers: [{ color: MAP_COLORS.landscape }],
+      stylers: [{ color: THEME_COLORS.landscape }],
     },
     // Roads
     {
       featureType: "road.highway",
       elementType: "geometry",
-      stylers: [{ color: MAP_COLORS.highway }],
+      stylers: [{ color: THEME_COLORS.highway }],
     },
     {
       featureType: "road.highway",
       elementType: "geometry.stroke",
-      stylers: [{ color: MAP_COLORS.highwayStroke }, { weight: 2 }],
+      stylers: [{ color: THEME_COLORS.highwayStroke }, { weight: 2 }],
     },
     {
       featureType: "road.arterial",
       elementType: "geometry",
-      stylers: [{ color: MAP_COLORS.arterial }],
+      stylers: [{ color: THEME_COLORS.arterial }],
     },
     {
       featureType: "road.arterial",
       elementType: "geometry.stroke",
-      stylers: [{ color: MAP_COLORS.arterialStroke }, { weight: 1 }],
+      stylers: [{ color: THEME_COLORS.arterialStroke }, { weight: 1 }],
     },
     {
       featureType: "road.local",
       elementType: "geometry",
-      stylers: [{ color: MAP_COLORS.localRoad }],
+      stylers: [{ color: THEME_COLORS.localRoad }],
     },
     {
       featureType: "road.local",
       elementType: "geometry.stroke",
-      stylers: [{ color: MAP_COLORS.localRoadStroke }, { weight: 0.5 }],
+      stylers: [{ color: THEME_COLORS.localRoadStroke }, { weight: 0.5 }],
     },
     // Labels
     {
       featureType: "road",
       elementType: "labels.text.fill",
       stylers: [
-        { color: MAP_COLORS.roadLabels },
+        { color: THEME_COLORS.roadLabels },
         { "font-family": "serif" },
         { "font-size": "12px" },
         { "font-weight": "normal" }
@@ -187,43 +217,43 @@ export function generateMapStyles(): google.maps.MapTypeStyle[] {
     {
       featureType: "road",
       elementType: "labels.text.stroke",
-      stylers: [{ color: MAP_COLORS.roadLabelsStroke }, { weight: 3 }],
+      stylers: [{ color: THEME_COLORS.roadLabelsStroke }, { weight: 3 }],
     },
     {
       featureType: "administrative",
       elementType: "geometry.stroke",
-      stylers: [{ color: MAP_COLORS.adminBoundaries }, { weight: 1.5 }],
+      stylers: [{ color: THEME_COLORS.adminBoundaries }, { weight: 1.5 }],
     },
     {
       featureType: "administrative",
       elementType: "labels.text.fill",
-      stylers: [{ color: MAP_COLORS.adminLabels }],
+      stylers: [{ color: THEME_COLORS.adminLabels }],
     },
     {
       featureType: "administrative",
       elementType: "labels.text.stroke",
-      stylers: [{ color: MAP_COLORS.adminLabelsStroke }, { weight: 3 }],
+      stylers: [{ color: THEME_COLORS.adminLabelsStroke }, { weight: 3 }],
     },
     // Built environment
     {
       featureType: "landscape.man_made",
       elementType: "geometry",
-      stylers: [{ color: MAP_COLORS.buildings }],
+      stylers: [{ color: THEME_COLORS.buildings }],
     },
     {
       featureType: "landscape.natural",
       elementType: "geometry",
-      stylers: [{ color: MAP_COLORS.naturalLandscape }],
+      stylers: [{ color: THEME_COLORS.naturalLandscape }],
     },
     {
       featureType: "landscape.natural.landcover",
       elementType: "geometry",
-      stylers: [{ color: MAP_COLORS.naturalLandcover }],
+      stylers: [{ color: THEME_COLORS.naturalLandcover }],
     },
     {
       featureType: "landscape.natural.terrain",
       elementType: "geometry",
-      stylers: [{ color: MAP_COLORS.terrain }],
+      stylers: [{ color: THEME_COLORS.terrain }],
     },
     // Hide POIs
     ...[

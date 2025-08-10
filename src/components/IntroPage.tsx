@@ -57,7 +57,7 @@ export default function IntroPage({ onLocationGranted, onLocationDenied }: Intro
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="space-y-4">
-            <div className="flex items-start gap-3 p-4 bg-colonial-accent-light rounded-lg border border-colonial-accent-border">
+            <div className="flex items-start gap-3 p-4 bg-accent rounded-lg border border-border">
               <Navigation className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
               <div>
                 <h3 className="font-semibold text-foreground">Location Access</h3>
@@ -67,11 +67,11 @@ export default function IntroPage({ onLocationGranted, onLocationDenied }: Intro
               </div>
             </div>
 
-            <div className="flex items-start gap-3 p-4 bg-colonial-success-light rounded-lg border border-colonial-success">
-              <AlertCircle className="w-5 h-5 text-colonial-success-dark mt-0.5 flex-shrink-0" />
+            <div className="flex items-start gap-3 p-4 bg-secondary rounded-lg border border-border">
+              <AlertCircle className="w-5 h-5 text-secondary-foreground mt-0.5 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold text-colonial-success-dark">Your Privacy</h3>
-                <p className="text-sm text-colonial-success-dark mt-1">
+                <h3 className="font-semibold text-secondary-foreground">Your Privacy</h3>
+                <p className="text-sm text-secondary-foreground mt-1">
                   Your location data is only used to center the map and is not stored or shared.
                 </p>
               </div>

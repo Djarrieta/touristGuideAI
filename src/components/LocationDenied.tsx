@@ -32,7 +32,7 @@ export default function LocationDenied({ onRetry }: LocationDeniedProps) {
               </ul>
             </div>
 
-            <div className="p-4 bg-colonial-accent-light rounded-lg border border-colonial-accent-border">
+            <div className="p-4 bg-accent rounded-lg border border-border">
               <h3 className="font-semibold text-foreground mb-2 flex items-center gap-2">
                 <Settings className="w-4 h-4 text-primary" />
                 How to enable location:
