@@ -29,25 +29,9 @@ export default function MapPage() {
   const [locationState, setLocationState] = useState<LocationState>('intro')
   const mapRef = useRef<google.maps.Map | null>(null)
 
-  const handleLocationGranted = () => {
-    setLocationState('granted')
-  }
 
-  const handleLocationDenied = () => {
-    setLocationState('denied')
-  }
 
-  const handleRetryLocation = () => {
-    setLocationState('intro')
-  }
 
-  const handleMarkerClick = (marker: MarkerData) => {
-    setSelectedMarker(marker)
-  }
-
-  const handleCloseInfoWindow = () => {
-    setSelectedMarker(null)
-  }
 
   const handlePlaceClick = (marker: MarkerData) => {
     if (mapRef.current) {
@@ -65,8 +49,8 @@ export default function MapPage() {
   if (locationState === 'intro') {
     return (
       <IntroPage 
-        onLocationGranted={handleLocationGranted}
-        onLocationDenied={handleLocationDenied}
+        onLocationGranted={()=>setLocationState('granted')}
+        onLocationDenied={()=>setLocationState('denied')}
       />
     )
   }
@@ -75,7 +59,7 @@ export default function MapPage() {
   if (locationState === 'denied') {
     return (
       <LocationDenied 
-        onRetry={handleRetryLocation}
+        onRetry={()=>  setLocationState('intro')}
       />
     )
   }
@@ -90,8 +74,8 @@ export default function MapPage() {
             <Map
               markers={markers}
               selectedMarker={selectedMarker}
-              onMarkerClick={handleMarkerClick}
-              onCloseInfoWindow={handleCloseInfoWindow}
+              onMarkerClick={setSelectedMarker}
+              onCloseInfoWindow={()=>setSelectedMarker(null)}
               onMapLoad={handleMapLoad}
             />
           </div>
