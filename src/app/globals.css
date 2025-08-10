@@ -73,47 +73,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark colonial theme - aged leather/dark parchment */
-    --background: 16 35% 8%;
-    /* Light parchment text on dark */
-    --foreground: 46 27% 94%;
-    /* Dark aged card - deep brown */
-    --card: 16 35% 12%;
-    --card-foreground: 46 27% 94%;
-    /* Dark popover */
-    --popover: 16 35% 8%;
-    --popover-foreground: 46 27% 94%;
-    /* Primary remains colonial gold */
-    --primary: 43 89% 38%;
-    --primary-foreground: 16 35% 8%;
-    /* Dark secondary - deeper stone */
-    --secondary: 34 29% 25%;
-    --secondary-foreground: 46 27% 94%;
-    /* Dark muted */
-    --muted: 16 35% 18%;
-    --muted-foreground: 44 24% 70%;
-    /* Dark accent */
-    --accent: 34 29% 25%;
-    --accent-foreground: 46 27% 94%;
-    /* Dark destructive - deeper colonial red */
-    --destructive: 14 89% 35%;
-    --destructive-foreground: 46 27% 94%;
-    /* Dark border */
-    --border: 34 29% 30%;
-    /* Dark input */
-    --input: 16 35% 18%;
-    /* Ring remains colonial gold */
-    --ring: 43 89% 38%;
-    /* Dark colonial chart colors */
-    --chart-1: 43 89% 45%; /* Brighter terracotta */
-    --chart-2: 14 89% 50%; /* Brighter colonial red */
-    --chart-3: 46 27% 80%; /* Light parchment */
-    --chart-4: 34 29% 65%; /* Light beige */
-    --chart-5: 39 39% 75%; /* Light stone */
-  }
-}
+
 
 * {
   border-color: hsl(var(--border));
