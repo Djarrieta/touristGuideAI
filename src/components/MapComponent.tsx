@@ -29,7 +29,6 @@ interface MarkerData {
 }
 
 export default function MapComponent() {
-  const [map, setMap] = useState<google.maps.Map | null>(null)
   const [markers, setMarkers] = useState<MarkerData[]>([
     {
       id: "1",
@@ -44,12 +43,10 @@ export default function MapComponent() {
   const mapRef = useRef<google.maps.Map | null>(null)
 
   const onLoad = useCallback((map: google.maps.Map) => {
-    setMap(map)
     mapRef.current = map
   }, [])
 
   const onUnmount = useCallback(() => {
-    setMap(null)
     mapRef.current = null
   }, [])
 
