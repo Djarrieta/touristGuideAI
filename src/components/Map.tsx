@@ -67,10 +67,83 @@ export default function Map({
           mapTypeControl: false,
           fullscreenControl: false,
           styles: [
+            // Hide all points of interest
             {
               featureType: "poi",
+              elementType: "all",
+              stylers: [{ visibility: "off" }],
+            },
+            // Hide business places
+            {
+              featureType: "poi.business",
+              elementType: "all",
+              stylers: [{ visibility: "off" }],
+            },
+            // Hide tourist attractions
+            {
+              featureType: "poi.attraction",
+              elementType: "all",
+              stylers: [{ visibility: "off" }],
+            },
+            // Hide parks
+            {
+              featureType: "poi.park",
+              elementType: "all",
+              stylers: [{ visibility: "off" }],
+            },
+            // Hide schools
+            {
+              featureType: "poi.school",
+              elementType: "all",
+              stylers: [{ visibility: "off" }],
+            },
+            // Hide medical facilities
+            {
+              featureType: "poi.medical",
+              elementType: "all",
+              stylers: [{ visibility: "off" }],
+            },
+            // Hide government buildings
+            {
+              featureType: "poi.government",
+              elementType: "all",
+              stylers: [{ visibility: "off" }],
+            },
+            // Hide places of worship
+            {
+              featureType: "poi.place_of_worship",
+              elementType: "all",
+              stylers: [{ visibility: "off" }],
+            },
+            // Hide sports complexes
+            {
+              featureType: "poi.sports_complex",
+              elementType: "all",
+              stylers: [{ visibility: "off" }],
+            },
+            // Hide transit stations
+            {
+              featureType: "transit",
               elementType: "labels",
               stylers: [{ visibility: "off" }],
+            },
+            // Keep road labels visible for street names
+            {
+              featureType: "road",
+              elementType: "labels",
+              stylers: [{ visibility: "on" }],
+            },
+            // Keep administrative labels (city, country names)
+            {
+              featureType: "administrative",
+              elementType: "labels",
+              stylers: [{ visibility: "on" }],
+            },
+            // Keep water labels
+            {
+              featureType: "water",
+              elementType: "labels",
+              stylers: [{ visibility: "on" }],
             },
           ],
         }}
