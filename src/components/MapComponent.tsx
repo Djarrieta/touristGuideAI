@@ -4,13 +4,15 @@ import { useState, useCallback, useRef } from "react"
 import { GoogleMap, LoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 import { MapPin } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
+import { useUserLocation } from "../hooks/useUserLocation"
 
 const containerStyle = {
   width: "100%",
   height: "600px",
 }
 
-const center = {
+// Default fallback coordinates (Medellín, Colombia)
+const defaultCenter = {
   lat: 6.556244, 
   lng: -75.826732
 }
@@ -42,6 +44,9 @@ export default function MapComponent() {
   ])
   const [selectedMarker, setSelectedMarker] = useState<MarkerData | null>(null)
   const mapRef = useRef<google.maps.Map | null>(null)
+  
+  // Get user's current location using custom hook
+  const { location: userLocation, loading: locationLoading, error: locationError } = useUserLocation()
 
   const onLoad = useCallback((map: google.maps.Map) => {
     mapRef.current = map
@@ -68,7 +73,7 @@ export default function MapComponent() {
           <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}>
                   <GoogleMap
                     mapContainerStyle={containerStyle}
-                    center={center}
+                    center={userLocation || defaultCenter}
                     zoom={12}
                     onLoad={onLoad}
                     onUnmount={onUnmount}
