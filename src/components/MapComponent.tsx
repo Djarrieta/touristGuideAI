@@ -2,8 +2,8 @@
 
 import { useState, useCallback, useRef } from "react"
 import { GoogleMap, LoadScript, Marker, InfoWindow } from "@react-google-maps/api"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { MapPin } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 
 const containerStyle = {
   width: "100%",
@@ -31,13 +31,13 @@ export default function MapComponent() {
       id: "1",
       position: { lat: 6.556991, lng: -75.825779 },
       title: "Igleasia principal",
-      description: "The Big Apple",
+      description: "The Big Apple 1",
     },
     {
       id: "2",
       position: { lat: 6.554982, lng: -75.825780 },
       title: "Igleasia principal 2",
-      description: "The Big Apple",
+      description: "The Big Apple 2",
     },
   ])
   const [selectedMarker, setSelectedMarker] = useState<MarkerData | null>(null)
@@ -72,9 +72,7 @@ export default function MapComponent() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Map */}
           <div className="lg:col-span-3">
-            <Card>
-              <CardContent className="p-0">
-                <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}>
+          <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}>
                   <GoogleMap
                     mapContainerStyle={containerStyle}
                     center={center}
@@ -82,6 +80,9 @@ export default function MapComponent() {
                     onLoad={onLoad}
                     onUnmount={onUnmount}
                     options={{
+                      streetViewControl: false,
+                      mapTypeControl: false,
+                      fullscreenControl: false,
                       styles: [
                         {
                           featureType: "poi",
@@ -102,15 +103,13 @@ export default function MapComponent() {
                     {selectedMarker && (
                       <InfoWindow position={selectedMarker.position} onCloseClick={() => setSelectedMarker(null)}>
                         <div className="p-2">
-                          <h3 className="font-semibold text-lg">{selectedMarker.title}</h3>
+                          <h3 className="font-semibold text-lg text-gray-800" >{selectedMarker.title}</h3>
                           <p className="text-sm text-gray-600">{selectedMarker.description}</p>
                         </div>
                       </InfoWindow>
                     )}
                   </GoogleMap>
                 </LoadScript>
-              </CardContent>
-            </Card>
           </div>
 
           {/* Sidebar */}
