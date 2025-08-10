@@ -1,30 +1,47 @@
 @import "tailwindcss";
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 0 0% 3.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 3.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 3.9%;
-  --primary: 0 0% 9%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 0 0% 96.1%;
-  --secondary-foreground: 0 0% 9%;
-  --muted: 0 0% 96.1%;
-  --muted-foreground: 0 0% 45.1%;
-  --accent: 0 0% 96.1%;
-  --accent-foreground: 0 0% 9%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 0 0% 89.8%;
-  --input: 0 0% 89.8%;
-  --ring: 0 0% 3.9%;
-  --chart-1: 12 76% 61%;
-  --chart-2: 173 58% 39%;
-  --chart-3: 197 37% 24%;
-  --chart-4: 43 74% 66%;
-  --chart-5: 27 87% 67%;
+  /* Colonial parchment background - matches map #f4f1e8 */
+  --background: 46 27% 94%;
+  /* Deep colonial brown for text - matches map #3e2723 */
+  --foreground: 16 35% 15%;
+  /* Card background - warm aged paper #f0ead6 */
+  --card: 47 33% 91%;
+  /* Card text - colonial brown */
+  --card-foreground: 16 35% 15%;
+  /* Popover - aged parchment */
+  --popover: 46 27% 94%;
+  --popover-foreground: 16 35% 15%;
+  /* Primary - colonial gold/terracotta #b8860b */
+  --primary: 43 89% 38%;
+  /* Primary foreground - parchment for contrast */
+  --primary-foreground: 46 27% 94%;
+  /* Secondary - warm stone #d2b48c */
+  --secondary: 39 39% 69%;
+  /* Secondary foreground - deep brown */
+  --secondary-foreground: 16 35% 15%;
+  /* Muted - pale colonial stone #e6dcc6 */
+  --muted: 44 24% 84%;
+  /* Muted foreground - medium brown #5d4037 */
+  --muted-foreground: 16 12% 30%;
+  /* Accent - aged stone */
+  --accent: 39 39% 69%;
+  --accent-foreground: 16 35% 15%;
+  /* Destructive - colonial red clay */
+  --destructive: 14 89% 42%;
+  --destructive-foreground: 46 27% 94%;
+  /* Border - warm beige #c19a6b */
+  --border: 34 29% 58%;
+  /* Input - slightly darker aged paper */
+  --input: 44 24% 84%;
+  /* Ring - colonial gold for focus */
+  --ring: 43 89% 38%;
+  /* Colonial-themed chart colors */
+  --chart-1: 43 89% 38%; /* Terracotta gold */
+  --chart-2: 14 89% 42%; /* Colonial red */
+  --chart-3: 16 35% 15%; /* Deep brown */
+  --chart-4: 34 29% 58%; /* Warm beige */
+  --chart-5: 39 39% 69%; /* Stone tan */
   --radius: 0.5rem;
 }
 
@@ -59,30 +76,43 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    /* Dark colonial theme - aged leather/dark parchment */
+    --background: 16 35% 8%;
+    /* Light parchment text on dark */
+    --foreground: 46 27% 94%;
+    /* Dark aged card - deep brown */
+    --card: 16 35% 12%;
+    --card-foreground: 46 27% 94%;
+    /* Dark popover */
+    --popover: 16 35% 8%;
+    --popover-foreground: 46 27% 94%;
+    /* Primary remains colonial gold */
+    --primary: 43 89% 38%;
+    --primary-foreground: 16 35% 8%;
+    /* Dark secondary - deeper stone */
+    --secondary: 34 29% 25%;
+    --secondary-foreground: 46 27% 94%;
+    /* Dark muted */
+    --muted: 16 35% 18%;
+    --muted-foreground: 44 24% 70%;
+    /* Dark accent */
+    --accent: 34 29% 25%;
+    --accent-foreground: 46 27% 94%;
+    /* Dark destructive - deeper colonial red */
+    --destructive: 14 89% 35%;
+    --destructive-foreground: 46 27% 94%;
+    /* Dark border */
+    --border: 34 29% 30%;
+    /* Dark input */
+    --input: 16 35% 18%;
+    /* Ring remains colonial gold */
+    --ring: 43 89% 38%;
+    /* Dark colonial chart colors */
+    --chart-1: 43 89% 45%; /* Brighter terracotta */
+    --chart-2: 14 89% 50%; /* Brighter colonial red */
+    --chart-3: 46 27% 80%; /* Light parchment */
+    --chart-4: 34 29% 65%; /* Light beige */
+    --chart-5: 39 39% 75%; /* Light stone */
   }
 }
 
