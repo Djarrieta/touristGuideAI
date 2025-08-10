@@ -190,7 +190,7 @@ export default function Home() {
             Start your adventure today and discover amazing places you never knew existed.
           </p>
           <Link href="/map">
-            <Button size="lg" variant="outline" className="border-primary-foreground text-primary bg-primary-foreground hover:bg-opacity-90 text-lg px-8 py-3">
+            <Button size="lg" variant="outline" className="border-primary-foreground text-primary bg-primary-foreground hover:bg-muted text-lg px-8 py-3">
               <MapPin className="w-5 h-5 mr-2" />
               Open Interactive Map
             </Button>

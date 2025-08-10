@@ -57,11 +57,11 @@ export default function IntroPage({ onLocationGranted, onLocationDenied }: Intro
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="space-y-4">
-            <div className="flex items-start gap-3 p-4 bg-colonial-success-light rounded-lg border border-colonial-success">
-              <Navigation className="w-5 h-5 text-colonial-success-dark mt-0.5 flex-shrink-0" />
+            <div className="flex items-start gap-3 p-4 bg-colonial-accent-light rounded-lg border border-colonial-accent-border">
+              <Navigation className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold text-colonial-success-dark">Location Access</h3>
-                <p className="text-sm text-colonial-success-dark mt-1">
+                <h3 className="font-semibold text-foreground">Location Access</h3>
+                <p className="text-sm text-muted-foreground mt-1">
                   We'll request access to your location to show nearby places and provide personalized recommendations.
                 </p>
               </div>
@@ -86,7 +86,7 @@ export default function IntroPage({ onLocationGranted, onLocationDenied }: Intro
           >
             {isRequesting ? (
               <>
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary-foreground mr-2" />
                 Requesting Location...
               </>
             ) : (

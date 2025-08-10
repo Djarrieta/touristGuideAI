@@ -1,54 +1,41 @@
 @import "tailwindcss";
 
 :root {
-  /* Colonial parchment background - matches map #f4f1e8 */
-  --background: 46 27% 94%;
-  /* Deep colonial brown for text - matches map #3e2723 */
-  --foreground: 16 35% 15%;
-  /* Card background - warm aged paper #f0ead6 */
-  --card: 47 33% 91%;
-  /* Card text - colonial brown */
-  --card-foreground: 16 35% 15%;
-  /* Popover - aged parchment */
-  --popover: 46 27% 94%;
-  --popover-foreground: 16 35% 15%;
-  /* Primary - colonial gold/terracotta #b8860b */
-  --primary: 43 89% 38%;
-  /* Primary foreground - parchment for contrast */
-  --primary-foreground: 46 27% 94%;
-  /* Secondary - warm stone #d2b48c */
-  --secondary: 39 39% 69%;
-  /* Secondary foreground - deep brown */
-  --secondary-foreground: 16 35% 15%;
-  /* Muted - pale colonial stone #e6dcc6 */
-  --muted: 44 24% 84%;
-  /* Muted foreground - medium brown #5d4037 */
-  --muted-foreground: 16 12% 30%;
-  /* Accent - aged stone */
-  --accent: 39 39% 69%;
-  --accent-foreground: 16 35% 15%;
-  /* Destructive - colonial red clay */
-  --destructive: 14 89% 42%;
-  --destructive-foreground: 46 27% 94%;
-  /* Border - warm beige #c19a6b */
-  --border: 34 29% 58%;
-  /* Input - slightly darker aged paper */
-  --input: 44 24% 84%;
-  /* Ring - colonial gold for focus */
-  --ring: 43 89% 38%;
-  /* Colonial-themed chart colors */
-  --chart-1: 43 89% 38%; /* Terracotta gold */
-  --chart-2: 14 89% 42%; /* Colonial red */
-  --chart-3: 16 35% 15%; /* Deep brown */
-  --chart-4: 34 29% 58%; /* Warm beige */
-  --chart-5: 39 39% 69%; /* Stone tan */
+  /* Colonial Theme Colors - Centralized from src/lib/colors.ts */
+  --background: 46 27% 94%; /* #f4f1e8 - Aged parchment */
+  --foreground: 16 35% 15%; /* #3e2723 - Deep colonial brown */
+  --card: 47 33% 91%; /* #f0ead6 - Warm aged paper */
+  --card-foreground: 16 35% 15%; /* #3e2723 - Colonial brown text */
+  --popover: 46 27% 94%; /* Same as background */
+  --popover-foreground: 16 35% 15%; /* Same as foreground */
+  --primary: 43 89% 38%; /* #b8860b - Colonial gold */
+  --primary-foreground: 46 27% 94%; /* #f4f1e8 - Parchment for contrast */
+  --secondary: 39 39% 69%; /* #d2b48c - Warm stone */
+  --secondary-foreground: 16 35% 15%; /* #3e2723 - Deep brown */
+  --muted: 44 24% 84%; /* #e6dcc6 - Pale colonial stone */
+  --muted-foreground: 16 12% 30%; /* #5d4037 - Medium brown */
+  --accent: 39 39% 69%; /* #d2b48c - Aged stone */
+  --accent-foreground: 16 35% 15%; /* #3e2723 - Deep brown */
+  --destructive: 14 89% 42%; /* #b8441f - Colonial red clay */
+  --destructive-foreground: 46 27% 94%; /* #f4f1e8 - Parchment */
+  --border: 34 29% 58%; /* #c19a6b - Warm beige */
+  --input: 44 24% 84%; /* Same as muted */
+  --ring: 43 89% 38%; /* Same as primary */
   
-  /* Additional colonial UI colors */
-  --colonial-accent-light: 43 45% 88%; /* Light terracotta for backgrounds */
-  --colonial-accent-border: 43 35% 70%; /* Medium terracotta for borders */
-  --colonial-success-light: 34 35% 85%; /* Warm sage for success states */
-  --colonial-success: 34 45% 45%; /* Deeper sage green */
-  --colonial-success-dark: 34 55% 25%; /* Dark sage for text */
+  /* Chart Colors */
+  --chart-1: 43 89% 38%; /* #b8860b - Terracotta gold */
+  --chart-2: 14 89% 42%; /* #b8441f - Colonial red */
+  --chart-3: 16 35% 15%; /* #3e2723 - Deep brown */
+  --chart-4: 34 29% 58%; /* #c19a6b - Warm beige */
+  --chart-5: 39 39% 69%; /* #d2b48c - Stone tan */
+  
+  /* Extended Colonial UI Colors */
+  --colonial-accent-light: 43 45% 88%; /* #f3e6d3 - Light terracotta */
+  --colonial-accent-border: 43 35% 70%; /* #d4a574 - Medium terracotta */
+  --colonial-success-light: 34 35% 85%; /* #e8e2d6 - Warm sage light */
+  --colonial-success: 34 45% 45%; /* #8b8264 - Deeper sage green */
+  --colonial-success-dark: 34 55% 25%; /* #5d5a47 - Dark sage for text */
+  
   --radius: 0.5rem;
 }
 
