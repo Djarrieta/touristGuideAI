@@ -4,14 +4,16 @@ import { useCallback, useRef } from "react"
 import { GoogleMap, LoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 import { useUserLocation } from "./useUserLocation"
 import { generateMapStyles } from "../../lib/colors"
+import { speak } from "../../lib/speech"
+import { Button } from "../ui/button"
+import { Volume2 } from "lucide-react"
 
 const containerStyle = {
   width: "100%",
   height: "600px",
 }
 
-// Default fallback coordinates (Medellín, Colombia)
-const defaultCenter = {
+export const defaultCenter = {
   lat: 6.1551, 
   lng: -75.3738
 }
@@ -80,9 +82,13 @@ export default function Map({
 
         {selectedMarker && (
           <InfoWindow position={selectedMarker.position} onCloseClick={onCloseInfoWindow}>
-            <div className="p-2">
+            <div className="p-2 space-y-2">
               <h3 className="font-semibold text-lg text-foreground">{selectedMarker.title}</h3>
               <p className="text-sm text-muted-foreground">{selectedMarker.description}</p>
+              <Button onClick={() => speak(selectedMarker.description)} size="sm" className="w-full">
+                <Volume2 className="w-4 h-4 mr-2" />
+                Narrar
+              </Button>
             </div>
           </InfoWindow>
         )}
