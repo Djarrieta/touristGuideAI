@@ -4,6 +4,7 @@ import IntroPage from "@/components/IntroPage"
 import LocationDenied from "@/components/LocationDenied"
 import Map, { type MarkerData } from "@/components/Map"
 import PlacesList from "@/components/PlacesList"
+import { speak } from "@/lib/speech"
 import { useRef, useState } from "react"
 
 const mockMarkers: MarkerData[] = [
@@ -47,12 +48,13 @@ export default function MapPage() {
   const [locationState, setLocationState] = useState<LocationState>('intro')
   const mapRef = useRef<google.maps.Map | null>(null)
 
-  const handlePlaceClick = (marker: MarkerData) => {
+  const handleMarkerClick = (marker: MarkerData) => {
     if (mapRef.current) {
       mapRef.current.panTo(marker.position)
       mapRef.current.setZoom(15)
     }
     setSelectedMarker(marker)
+    speak(marker.title + ". "+marker.description)
   }
 
   const handleMapLoad = (map: google.maps.Map) => {
@@ -88,7 +90,7 @@ export default function MapPage() {
             <Map
               markers={markers}
               selectedMarker={selectedMarker}
-              onMarkerClick={setSelectedMarker}
+              onMarkerClick={handleMarkerClick}
               onCloseInfoWindow={()=>setSelectedMarker(null)}
               onMapLoad={handleMapLoad}
             />
@@ -98,7 +100,7 @@ export default function MapPage() {
           <div className="space-y-6">
             <PlacesList
               markers={markers}
-              onPlaceClick={handlePlaceClick}
+              onPlaceClick={handleMarkerClick}
             />
           </div>
         </div>
