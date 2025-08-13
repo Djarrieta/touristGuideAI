@@ -83,12 +83,12 @@ export default function PlacesList({ markers, onPlaceClick }: PlacesListProps) {
                       </span>
                     )}
                     {visited && (
-                      <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium bg-green-50 text-green-700 border-green-200">
+                      <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium bg-success-light text-success border-success/30">
                         <CheckCircle2 className="w-3 h-3" /> visited
                       </span>
                     )}
                     {isLastSelected && (
-                      <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium bg-blue-50 text-blue-700 border-blue-200">
+                      <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium bg-info-light text-info border-info/30">
                         <Clock className="w-3 h-3" /> last
                       </span>
                     )}

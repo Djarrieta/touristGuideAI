@@ -9,7 +9,7 @@ import {
 } from "@react-google-maps/api";
 import { useUserLocation } from "./useUserLocation";
 import { isWithinMeters } from "../../lib/utils";
-import { generateMapStyles } from "../../lib/colors";
+import { generateMapStyles, THEME_COLORS } from "../../lib/colors";
 import {
   CENTER_ON_USER_ZOOM,
   DEFAULT_ZOOM,
@@ -139,9 +139,13 @@ export default function Map({
               ? ({
                   path: google.maps.SymbolPath.CIRCLE,
                   scale: isLastSelected ? 10 : 8,
-                  fillColor: "#16a34a", // green-600
+                  // Use semantic success color for visited markers
+                  fillColor: THEME_COLORS.success,
                   fillOpacity: 1,
-                  strokeColor: isLastSelected ? "#0ea5e9" : "#14532d", // sky-500 or green-900
+                  // Highlight last selected with info color, otherwise a darker success tone
+                  strokeColor: isLastSelected
+                    ? THEME_COLORS.info
+                    : THEME_COLORS.success,
                   strokeOpacity: 1,
                   strokeWeight: isLastSelected ? 2 : 1,
                 } as google.maps.Symbol)

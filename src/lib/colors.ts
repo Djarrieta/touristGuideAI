@@ -29,6 +29,8 @@ export const PALETTE = {
   vintageEarth: '#e8dcc0', // Vintage earth tone
   fadedColonialGreen: '#d7c7a8', // Faded colonial green
   vintageTerrain: '#e6d7c3', // Vintage terrain
+  heritageGreen: '#2f6f4e', // Muted heritage green (success)
+  heritageGreenLight: '#dbeee4', // Light heritage green (success light)
 } as const;
 
 export const THEME_COLORS = {
@@ -54,6 +56,12 @@ export const THEME_COLORS = {
   destructiveForeground: PALETTE.parchment,
   // Border
   border: PALETTE.warmBeige,
+
+  // Semantic
+  success: PALETTE.heritageGreen,
+  successLight: PALETTE.heritageGreenLight,
+  info: PALETTE.deepColonialBlue,
+  infoLight: PALETTE.vintageBlueGreen,
 
   // Chart/Accent Colors
   chart1: PALETTE.gold,
@@ -114,6 +122,8 @@ export const PALETTE_HSL = {
   vintageEarth: '44 38% 83%',
   fadedColonialGreen: '45 38% 75%',
   vintageTerrain: '39 38% 83%',
+  heritageGreen: '149 41% 31%',
+  heritageGreenLight: '148 36% 90%',
 } as const;
 
 export const THEME_HSL = {
@@ -136,6 +146,11 @@ export const THEME_HSL = {
   chart3: PALETTE_HSL.deepBrown,
   chart4: PALETTE_HSL.warmBeige,
   chart5: PALETTE_HSL.warmStone,
+  // Semantic
+  success: PALETTE_HSL.heritageGreen,
+  successLight: PALETTE_HSL.heritageGreenLight,
+  info: PALETTE_HSL.deepColonialBlue,
+  infoLight: PALETTE_HSL.vintageBlueGreen,
 } as const;
 
 /**

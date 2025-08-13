@@ -21,6 +21,11 @@
   --border: 34 29% 58%; /* #c19a6b - Warm beige */
   --input: 44 24% 84%; /* Same as muted */
   --ring: 43 89% 38%; /* Same as primary */
+  /* Semantic */
+  --success: 34 45% 45%; /* deepSage */
+  --success-light: 34 35% 85%; /* warmSageLight */
+  --info: 205 40% 29%; /* deepColonialBlue */
+  --info-light: 202 45% 65%; /* vintageBlueGreen */
   
   /* Chart Colors */
   --chart-1: 43 89% 38%; /* #b8860b - Terracotta gold */
@@ -52,6 +57,10 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
+  --color-success: hsl(var(--success));
+  --color-success-light: hsl(var(--success-light));
+  --color-info: hsl(var(--info));
+  --color-info-light: hsl(var(--info-light));
   --color-chart-1: hsl(var(--chart-1));
   --color-chart-2: hsl(var(--chart-2));
   --color-chart-3: hsl(var(--chart-3));
