@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, Clock, MapPin, RotateCcw } from "lucide-react";
+import { CheckCircle2, Clock, MapPin, RotateCcw, Ruler } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import type { MarkerData } from "./Map";
 import { useUserLocation } from "./Map/useUserLocation";
@@ -50,7 +50,7 @@ export default function PlacesList({ markers, onPlaceClick }: PlacesListProps) {
               <div
                 key={marker.id}
                 className={cn(
-                  "p-3 border rounded-lg transition-colors",
+                  "p-3 border rounded-lg transition-colors bg-card",
                   canSelect
                     ? "hover:bg-muted/50 cursor-pointer"
                     : "opacity-50 cursor-not-allowed"
@@ -58,42 +58,42 @@ export default function PlacesList({ markers, onPlaceClick }: PlacesListProps) {
                 onClick={() => canSelect && onPlaceClick(marker)}
                 aria-disabled={!canSelect}
               >
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h4 className="font-medium">{marker.title}</h4>
-                      {visited && (
-                        <span className="inline-flex items-center text-green-700 bg-green-100 border border-green-200 text-[10px] px-1.5 py-0.5 rounded">
-                          <CheckCircle2 className="w-3 h-3 mr-1" /> visited
-                        </span>
-                      )}
-                      {isLastSelected && (
-                        <span className="inline-flex items-center text-blue-700 bg-blue-100 border border-blue-200 text-[10px] px-1.5 py-0.5 rounded">
-                          <Clock className="w-3 h-3 mr-1" /> last
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      {marker.description}
-                    </p>
+                <div className="flex flex-col gap-1.5">
+                  <h4 className="font-semibold leading-tight text-base">
+                    {marker.title}
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    {marker.description}
+                  </p>
+                  <p className="text-[11px] text-muted-foreground">
+                    {marker.position.lat.toFixed(4)},{" "}
+                    {marker.position.lng.toFixed(4)}
+                  </p>
+                  <div className="mt-1 flex flex-wrap items-center gap-1.5">
+                    {distance !== null && (
+                      <span
+                        className={cn(
+                          "inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium",
+                          canSelect
+                            ? "bg-primary/10 text-primary border-primary/30"
+                            : "bg-primary/5 text-muted-foreground border-primary/20"
+                        )}
+                      >
+                        <Ruler className="w-3 h-3" /> {distance} m
+                      </span>
+                    )}
+                    {visited && (
+                      <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium bg-green-50 text-green-700 border-green-200">
+                        <CheckCircle2 className="w-3 h-3" /> visited
+                      </span>
+                    )}
+                    {isLastSelected && (
+                      <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium bg-blue-50 text-blue-700 border-blue-200">
+                        <Clock className="w-3 h-3" /> last
+                      </span>
+                    )}
                   </div>
-                  {distance !== null && (
-                    <span
-                      className={cn(
-                        "text-xs px-2 py-0.5 rounded-full",
-                        canSelect
-                          ? "bg-green-100 text-green-800"
-                          : "bg-muted text-muted-foreground"
-                      )}
-                    >
-                      {distance} m
-                    </span>
-                  )}
                 </div>
-                <p className="text-xs text-muted-foreground mt-1">
-                  {marker.position.lat.toFixed(4)},{" "}
-                  {marker.position.lng.toFixed(4)}
-                </p>
               </div>
             );
           })}
