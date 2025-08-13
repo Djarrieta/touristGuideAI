@@ -1,103 +1,127 @@
-# Tourist Guide - Interactive Map
+# Tourist Guide
 
-A modern, interactive tourist guide application built with Next.js, React, TypeScript, and Google Maps API.
+An interactive, location-aware tourist guide built with Next.js, React, TypeScript, Tailwind CSS, and the Google Maps JavaScript API.
+
+## Overview
+
+The app helps users discover nearby points of interest with an interactive map and a curated list of places. It requests geolocation permission to center the map, displays markers (mock data by default), and reads out place details using the Web Speech API (Spanish, es-CO).
 
 ## Features
 
-- 🗺️ Interactive Google Maps integration
-- 📍 Add custom markers by clicking on the map
-- 🏷️ Manage places with names and descriptions
-- 🎯 Click on markers to view details
-- 🗑️ Delete unwanted markers
-- 📱 Responsive design for all devices
-- 🌙 Dark mode support
-- ✨ Modern UI with shadcn/ui components
+- Interactive Google Map with custom styling
+- Geolocation permission flow (intro → granted/denied states)
+- Auto-centering to user location or a default center (Rionegro, Colombia)
+- Sidebar list of places synchronized with map markers
+- Click a place or marker to pan/zoom, open an info window, and play text-to-speech
+- Responsive UI with cards/buttons (Tailwind + shadcn-style components)
 
-## Getting Started
+## Tech Stack
+
+- Next.js 15 (App Router) + React 19 + TypeScript
+- @react-google-maps/api for Google Maps integration
+- Tailwind CSS v4 for styling
+- Lucide React for icons
+
+## Project Structure
+
+```
+src/
+  app/
+    layout.tsx            # Root layout (App Router)
+    page.tsx              # Marketing homepage (server component)
+    map/
+      page.tsx            # Main map experience (client components)
+  components/
+    IntroPage.tsx         # Geolocation intro/permission request (client)
+    LocationDenied.tsx    # Fallback screen when permission is denied (client)
+    PlacesList.tsx        # Sidebar listing of places (client)
+    Map/
+      index.tsx           # Google Map wrapper with markers and InfoWindow (client)
+      useUserLocation.ts  # Hook to get current user location (client)
+    ui/
+      button.tsx          # UI primitives
+      card.tsx            # UI primitives
+  lib/
+    colors.ts             # Map style generator
+    speech.ts             # Web Speech API helper (es-CO)
+    utils.ts              # Shared utilities
+public/                   # Static assets
+```
+
+Key modules:
+
+- `src/app/map/page.tsx`: Orchestrates the map page, manages markers, selection, and speech.
+- `src/components/Map/index.tsx`: Loads and renders Google Map, applies styles, handles markers & InfoWindow.
+- `src/components/Map/useUserLocation.ts`: Geolocation with sensible defaults and error handling.
+- `src/lib/speech.ts`: Text-to-speech helper (Spanish, es-CO).
+
+## Setup
 
 ### Prerequisites
 
-- Node.js 18+ 
-- npm or yarn
-- Google Maps API Key
+- Node.js 18+
+- A Google Maps JavaScript API key with Maps JavaScript API enabled
 
-### Installation
+### Install dependencies
 
-1. Install dependencies:
 ```bash
 npm install
+# or
+pnpm install
+# or
+bun install
 ```
 
-2. Set up your Google Maps API Key:
-   - Go to [Google Cloud Console](https://console.cloud.google.com/google/maps-apis)
-   - Create a new project or select an existing one
-   - Enable the Maps JavaScript API
-   - Create an API Key
-   - Copy `.env.local.example` to `.env.local`:
-   ```bash
-   cp .env.local.example .env.local
-   ```
-   - Add your API key to `.env.local`:
-   ```
-   NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_actual_api_key_here
-   ```
+### Configure environment
 
-3. Run the development server:
+Create a `.env.local` file in the project root with your API key:
+
+```
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_actual_api_key_here
+```
+
+### Run in development
+
+The dev server is configured to run on port 3005.
+
 ```bash
 npm run dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open http://localhost:3005
 
-## Usage
+### Production build
 
-1. **View Places**: The map loads with some default tourist attractions
-2. **Add New Places**: 
-   - Fill in the place name and description in the sidebar
-   - Click "Enable Adding Mode"
-   - Click anywhere on the map to place a marker
-3. **View Details**: Click on any marker to see its information
-4. **Navigate**: Click on places in the sidebar to center the map on them
-5. **Delete Places**: Click the delete button in the info window to remove markers
-
-## Technologies Used
-
-- **Next.js 15** - React framework with App Router
-- **React 19** - UI library
-- **TypeScript** - Type safety
-- **Google Maps API** - Interactive maps
-- **@react-google-maps/api** - React Google Maps integration
-- **Tailwind CSS 4** - Styling
-- **shadcn/ui** - UI components
-- **Lucide React** - Icons
-
-## Customization
-
-### Changing Default Location
-Edit the `center` object in `src/components/MapComponent.tsx`:
-```typescript
-const center = {
-  lat: 40.7128,  // Your latitude
-  lng: -74.006,  // Your longitude
-}
+```bash
+npm run build
+npm start
 ```
 
-### Adding Default Markers
-Modify the initial `markers` state in `MapComponent.tsx`:
-```typescript
-const [markers, setMarkers] = useState<MarkerData[]>([
-  {
-    id: "1",
-    position: { lat: YOUR_LAT, lng: YOUR_LNG },
-    title: "Your Place",
-    description: "Your description",
-  },
-  // Add more markers...
-])
-```
+## How it works
 
-## Deploy on Vercel
+1. Home (`/`) introduces the app and links to `/map`.
+2. `/map` shows an intro asking for geolocation permission.
+   - Granted: centers the map on the user; shows markers and list.
+   - Denied: renders a friendly fallback with retry.
+3. Clicking a list item or marker pans/zooms the map, opens an info window, and uses speech synthesis to announce the place in Spanish.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Notes:
 
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Markers are mocked in `src/app/map/page.tsx` and located around Rionegro, Colombia. Replace with real data as needed.
+- Speech synthesis requires a browser with `window.speechSynthesis` support.
+
+## Scripts
+
+- `dev`: Start Next.js dev server on port 3005
+- `build`: Build for production
+- `start`: Start production server
+- `lint`: Lint the codebase
+
+## Configuration
+
+- Port (dev): defined in `package.json` as `next dev --turbopack -p 3005`.
+- Google Maps: `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` must be present at runtime (client-exposed).
