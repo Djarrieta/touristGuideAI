@@ -18,6 +18,7 @@ import {
 } from "@/lib/constants";
 import { Button } from "../ui/button";
 import { LocateFixed } from "lucide-react";
+import { useVisitedPlacesContext } from "./VisitedPlacesContext";
 
 const containerStyle = {
   width: "100%",
@@ -57,6 +58,7 @@ export default function Map({
 
   // Get user's current location using custom hook (silent mode)
   const { location: userLocation } = useUserLocation();
+  const { isVisited, lastSelectedId } = useVisitedPlacesContext();
 
   const onLoad = useCallback(
     (map: google.maps.Map) => {
@@ -128,6 +130,22 @@ export default function Map({
                 MARKER_SELECT_RADIUS_METERS
               )
             : true; // if no location yet, allow selection
+          const visited = isVisited(marker.id);
+          const isLastSelected = lastSelectedId === marker.id;
+
+          // Use a distinct icon for visited markers when google maps is available
+          const visitedIcon =
+            typeof google !== "undefined" && google.maps
+              ? ({
+                  path: google.maps.SymbolPath.CIRCLE,
+                  scale: isLastSelected ? 10 : 8,
+                  fillColor: "#16a34a", // green-600
+                  fillOpacity: 1,
+                  strokeColor: isLastSelected ? "#0ea5e9" : "#14532d", // sky-500 or green-900
+                  strokeOpacity: 1,
+                  strokeWeight: isLastSelected ? 2 : 1,
+                } as google.maps.Symbol)
+              : undefined;
 
           return (
             <Marker
@@ -137,6 +155,7 @@ export default function Map({
               // visually indicate disabled by reducing opacity
               opacity={canSelect ? 1 : 0.5}
               zIndex={canSelect ? 1 : 0}
+              icon={visited ? visitedIcon : undefined}
             />
           );
         })}

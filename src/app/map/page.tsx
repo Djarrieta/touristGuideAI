@@ -3,8 +3,12 @@
 import IntroPage from "@/components/IntroPage";
 import LocationDenied from "@/components/LocationDenied";
 import Map, { type MarkerData } from "@/components/Map";
-import { MARKER_FOCUS_ZOOM } from "@/lib/constants";
+import {
+  VisitedPlacesProvider,
+  useVisitedPlacesContext,
+} from "@/components/Map/VisitedPlacesContext";
 import PlacesList from "@/components/PlacesList";
+import { MARKER_FOCUS_ZOOM } from "@/lib/constants";
 import { speak } from "@/lib/speech";
 import { useRef, useState } from "react";
 
@@ -48,11 +52,12 @@ const mockMarkers: MarkerData[] = [
 
 type LocationState = "intro" | "granted" | "denied";
 
-export default function MapPage() {
+function MapContent() {
   const [markers] = useState<MarkerData[]>(mockMarkers);
   const [selectedMarker, setSelectedMarker] = useState<MarkerData | null>(null);
   const [locationState, setLocationState] = useState<LocationState>("intro");
   const mapRef = useRef<google.maps.Map | null>(null);
+  const { markVisited, setLastSelected } = useVisitedPlacesContext();
 
   const handleMarkerClick = (marker: MarkerData) => {
     if (mapRef.current) {
@@ -60,6 +65,9 @@ export default function MapPage() {
       mapRef.current.setZoom(MARKER_FOCUS_ZOOM);
     }
     setSelectedMarker(marker);
+    // Persist selection and mark as visited
+    markVisited(marker.id);
+    setLastSelected(marker.id);
     speak(marker.title + ". " + marker.description);
   };
 
@@ -93,7 +101,10 @@ export default function MapPage() {
               markers={markers}
               selectedMarker={selectedMarker}
               onMarkerClick={handleMarkerClick}
-              onCloseInfoWindow={() => setSelectedMarker(null)}
+              onCloseInfoWindow={() => {
+                setSelectedMarker(null);
+                setLastSelected(null);
+              }}
               onMapLoad={handleMapLoad}
             />
           </div>
@@ -105,5 +116,13 @@ export default function MapPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function MapPage() {
+  return (
+    <VisitedPlacesProvider>
+      <MapContent />
+    </VisitedPlacesProvider>
   );
 }
