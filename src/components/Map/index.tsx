@@ -10,7 +10,12 @@ import {
 import { useUserLocation } from "./useUserLocation";
 import { isWithinMeters } from "../../lib/utils";
 import { generateMapStyles } from "../../lib/colors";
-import { CENTER_ON_USER_ZOOM, DEFAULT_ZOOM } from "@/lib/constants";
+import {
+  CENTER_ON_USER_ZOOM,
+  DEFAULT_ZOOM,
+  DEFAULT_CENTER,
+  MARKER_SELECT_RADIUS_METERS,
+} from "@/lib/constants";
 import { Button } from "../ui/button";
 import { LocateFixed } from "lucide-react";
 
@@ -19,10 +24,7 @@ const containerStyle = {
   height: "600px",
 };
 
-export const defaultCenter = {
-  lat: 39.0201344,
-  lng: -77.4144,
-};
+// default map center moved to src/lib/constants.ts as DEFAULT_CENTER
 
 interface MarkerData {
   id: string;
@@ -85,7 +87,7 @@ export default function Map({
     >
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={userLocation || defaultCenter}
+        center={userLocation || DEFAULT_CENTER}
         zoom={DEFAULT_ZOOM}
         onLoad={onLoad}
         onUnmount={onUnmount}
@@ -120,7 +122,11 @@ export default function Map({
 
         {markers.map((marker) => {
           const canSelect = userLocation
-            ? isWithinMeters(userLocation, marker.position, 10)
+            ? isWithinMeters(
+                userLocation,
+                marker.position,
+                MARKER_SELECT_RADIUS_METERS
+              )
             : true; // if no location yet, allow selection
 
           return (
