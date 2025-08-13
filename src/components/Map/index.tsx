@@ -10,6 +10,7 @@ import {
 import { useUserLocation } from "./useUserLocation";
 import { isWithinMeters } from "../../lib/utils";
 import { generateMapStyles } from "../../lib/colors";
+import { CENTER_ON_USER_ZOOM, DEFAULT_ZOOM } from "@/lib/constants";
 import { Button } from "../ui/button";
 import { LocateFixed } from "lucide-react";
 
@@ -72,8 +73,8 @@ export default function Map({
       mapRef.current.panTo(userLocation);
       // Optionally adjust zoom when centering
       const currentZoom = mapRef.current.getZoom?.();
-      if (!currentZoom || currentZoom < 12) {
-        mapRef.current.setZoom(14);
+      if (!currentZoom || currentZoom < DEFAULT_ZOOM) {
+        mapRef.current.setZoom(CENTER_ON_USER_ZOOM);
       }
     }
   }, [userLocation]);
@@ -85,7 +86,7 @@ export default function Map({
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={userLocation || defaultCenter}
-        zoom={12}
+        zoom={DEFAULT_ZOOM}
         onLoad={onLoad}
         onUnmount={onUnmount}
         options={{

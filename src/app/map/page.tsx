@@ -3,6 +3,7 @@
 import IntroPage from "@/components/IntroPage";
 import LocationDenied from "@/components/LocationDenied";
 import Map, { type MarkerData } from "@/components/Map";
+import { MARKER_FOCUS_ZOOM } from "@/lib/constants";
 import PlacesList from "@/components/PlacesList";
 import { speak } from "@/lib/speech";
 import { useRef, useState } from "react";
@@ -56,7 +57,7 @@ export default function MapPage() {
   const handleMarkerClick = (marker: MarkerData) => {
     if (mapRef.current) {
       mapRef.current.panTo(marker.position);
-      mapRef.current.setZoom(15);
+      mapRef.current.setZoom(MARKER_FOCUS_ZOOM);
     }
     setSelectedMarker(marker);
     speak(marker.title + ". " + marker.description);
