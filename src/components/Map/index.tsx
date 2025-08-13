@@ -8,6 +8,7 @@ import {
   InfoWindow,
 } from "@react-google-maps/api";
 import { useUserLocation } from "./useUserLocation";
+import { isWithinMeters } from "../../lib/utils";
 import { generateMapStyles } from "../../lib/colors";
 
 const containerStyle = {
@@ -16,8 +17,8 @@ const containerStyle = {
 };
 
 export const defaultCenter = {
-  lat: 6.1551,
-  lng: -75.3738,
+  lat: 39.0201344,
+  lng: -77.4144,
 };
 
 interface MarkerData {
@@ -28,6 +29,8 @@ interface MarkerData {
   };
   title: string;
   description: string;
+  // computed at render-time; optional extra props consumers may use
+  disabled?: boolean;
 }
 
 interface MapProps {
@@ -88,13 +91,22 @@ export default function Map({
           />
         )}
 
-        {markers.map((marker) => (
-          <Marker
-            key={marker.id}
-            position={marker.position}
-            onClick={() => onMarkerClick(marker)}
-          />
-        ))}
+        {markers.map((marker) => {
+          const canSelect = userLocation
+            ? isWithinMeters(userLocation, marker.position, 10)
+            : true; // if no location yet, allow selection
+
+          return (
+            <Marker
+              key={marker.id}
+              position={marker.position}
+              onClick={() => canSelect && onMarkerClick(marker)}
+              // visually indicate disabled by reducing opacity
+              opacity={canSelect ? 1 : 0.5}
+              zIndex={canSelect ? 1 : 0}
+            />
+          );
+        })}
 
         {selectedMarker && (
           <InfoWindow
