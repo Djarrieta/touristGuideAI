@@ -10,6 +10,8 @@ import {
 import { useUserLocation } from "./useUserLocation";
 import { isWithinMeters } from "../../lib/utils";
 import { generateMapStyles } from "../../lib/colors";
+import { Button } from "../ui/button";
+import { LocateFixed } from "lucide-react";
 
 const containerStyle = {
   width: "100%",
@@ -65,6 +67,17 @@ export default function Map({
     mapRef.current = null;
   }, []);
 
+  const centerOnUser = useCallback(() => {
+    if (userLocation && mapRef.current) {
+      mapRef.current.panTo(userLocation);
+      // Optionally adjust zoom when centering
+      const currentZoom = mapRef.current.getZoom?.();
+      if (!currentZoom || currentZoom < 12) {
+        mapRef.current.setZoom(14);
+      }
+    }
+  }, [userLocation]);
+
   return (
     <LoadScript
       googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}
@@ -82,6 +95,19 @@ export default function Map({
           styles: generateMapStyles(),
         }}
       >
+        {/* Overlay control: center map on user's location */}
+        <div style={{ position: "absolute", top: 16, right: 16, zIndex: 1000 }}>
+          <Button
+            size="icon"
+            variant="secondary"
+            onClick={centerOnUser}
+            disabled={!userLocation}
+            aria-label="Center on my location"
+            title="Center on my location"
+          >
+            <LocateFixed className="h-5 w-5" />
+          </Button>
+        </div>
         {userLocation && (
           <Marker
             position={userLocation}
