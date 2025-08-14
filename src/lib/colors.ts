@@ -1,156 +1,60 @@
-/**
- * Colonial Theme Color Palette
- * Centralized color definitions for consistent theming across components and map
- */
-export const PALETTE = {
-  parchment: '#f4f1e8', // Aged parchment
-  deepBrown: '#3e2723', // Deep colonial brown
-  agedPaper: '#f0ead6', // Warm aged paper
-  gold: '#b8860b', // Colonial gold
-  warmStone: '#d2b48c', // Warm stone
-  paleStone: '#e6dcc6', // Pale colonial stone
-  mediumBrown: '#5d4037', // Medium brown
-  agedStone: '#d2b48c', // Aged stone
-  redClay: '#b8441f', // Colonial red clay
-  warmBeige: '#c19a6b', // Warm beige
-  lightTerracotta: '#f3e6d3', // Light terracotta
-  mediumTerracotta: '#d4a574', // Medium terracotta
-  warmSageLight: '#e8e2d6', // Warm sage light
-  deepSage: '#8b8264', // Deeper sage green
-  darkSage: '#5d5a47', // Dark sage
-  vintageBlueGreen: '#7fb3d1', // Vintage blue-green
-  deepColonialBlue: '#2c4f66', // Deep colonial blue
-  darkerGold: '#8b6914', // Darker gold
-  lightStone: '#e8e8e8', // Light stone
-  siennaBrown: '#a0522d', // Sienna brown
-  white: '#ffffff', // White
-  colonialGold: '#cd853f', // Colonial gold boundaries
-  adobeClay: '#ede0d3', // Adobe/clay color
-  vintageEarth: '#e8dcc0', // Vintage earth tone
-  fadedColonialGreen: '#d7c7a8', // Faded colonial green
-  vintageTerrain: '#e6d7c3', // Vintage terrain
-  heritageGreen: '#2f6f4e', // Muted heritage green (success)
-  heritageGreenLight: '#dbeee4', // Light heritage green (success light)
-} as const;
-
 export const THEME_COLORS = {
   // Base
-  background: PALETTE.agedPaper,
-  foreground: PALETTE.deepBrown,
+  background: '#f4f1e8',
+  foreground: '#3e2723',
   // Card
-  card: PALETTE.agedPaper,
-  cardForeground: PALETTE.deepBrown,
+  card: '#f0ead6',
+  cardForeground: '#3e2723',
   // Primary
-  primary: PALETTE.gold,
-  primaryForeground: PALETTE.parchment,
+  primary: '#b8860b',
+  primaryForeground: '#f4f1e8',
   // Secondary
-  secondary: PALETTE.warmStone,
-  secondaryForeground: PALETTE.deepBrown,
+  secondary: '#d2b48c',
+  secondaryForeground: '#3e2723',
   // Muted
-  muted: PALETTE.paleStone,
-  mutedForeground: PALETTE.mediumBrown,
+  muted: '#e6dcc6',
+  mutedForeground: '#5d4037',
   // Accent
-  accent: PALETTE.agedStone,
+  accent: '#d2b48c',
   // Destructive
-  destructive: PALETTE.redClay,
-  destructiveForeground: PALETTE.parchment,
+  destructive: '#b8441f',
+  destructiveForeground: '#f4f1e8',
   // Border
-  border: PALETTE.warmBeige,
+  border: '#c19a6b',
 
   // Semantic
-  success: PALETTE.heritageGreen,
-  successLight: PALETTE.heritageGreenLight,
-  info: PALETTE.deepColonialBlue,
-  infoLight: PALETTE.vintageBlueGreen,
+  success: '#2f6f4e',
+  successLight: '#dbeee4',
+  info: '#2c4f66',
+  infoLight: '#7fb3d1',
 
   // Chart/Accent Colors
-  chart1: PALETTE.gold,
-  chart2: PALETTE.redClay,
-  chart3: PALETTE.deepBrown,
-  chart4: PALETTE.warmBeige,
-  chart5: PALETTE.warmStone,
+  chart1: '#b8860b',
+  chart2: '#b8441f',
+  chart3: '#3e2723',
+  chart4: '#c19a6b',
+  chart5: '#d2b48c',
 
   // Map Colors
-  mapBackground: PALETTE.parchment,
-  landscape: PALETTE.agedPaper,
-  water: PALETTE.vintageBlueGreen,
-  waterLabels: PALETTE.deepColonialBlue,
-  highway: PALETTE.gold,
-  highwayStroke: PALETTE.darkerGold,
-  arterial: PALETTE.lightStone,
-  arterialStroke: PALETTE.siennaBrown,
-  localRoad: PALETTE.white,
-  localRoadStroke: PALETTE.warmBeige,
-  roadLabels: PALETTE.deepBrown,
-  roadLabelsStroke: PALETTE.parchment,
-  adminLabels: PALETTE.deepBrown,
-  adminLabelsStroke: PALETTE.parchment,
-  adminBoundaries: PALETTE.colonialGold,
-  buildings: PALETTE.adobeClay,
-  naturalLandscape: PALETTE.vintageEarth,
-  naturalLandcover: PALETTE.fadedColonialGreen,
-  terrain: PALETTE.vintageTerrain,
-} as const;
-
-/**
- * HSL values for Tailwind CSS custom properties
- */
-export const PALETTE_HSL = {
-  parchment: '46 27% 94%',
-  deepBrown: '16 35% 15%',
-  agedPaper: '47 33% 91%',
-  gold: '43 89% 38%',
-  warmStone: '39 39% 69%',
-  paleStone: '44 24% 84%',
-  mediumBrown: '16 12% 30%',
-  agedStone: '39 39% 69%',
-  redClay: '14 89% 42%',
-  warmBeige: '34 29% 58%',
-  lightTerracotta: '43 45% 88%',
-  mediumTerracotta: '43 35% 70%',
-  warmSageLight: '34 35% 85%',
-  deepSage: '34 45% 45%',
-  darkSage: '34 55% 25%',
-  vintageBlueGreen: '202 45% 65%',
-  deepColonialBlue: '205 40% 29%',
-  darkerGold: '43 75% 31%',
-  lightStone: '0 0% 91%',
-  siennaBrown: '25 57% 40%',
-  white: '0 0% 100%',
-  colonialGold: '30 63% 52%',
-  adobeClay: '33 43% 88%',
-  vintageEarth: '44 38% 83%',
-  fadedColonialGreen: '45 38% 75%',
-  vintageTerrain: '39 38% 83%',
-  heritageGreen: '149 41% 31%',
-  heritageGreenLight: '148 36% 90%',
-} as const;
-
-export const THEME_HSL = {
-  background: PALETTE_HSL.agedPaper,
-  foreground: PALETTE_HSL.deepBrown,
-  card: PALETTE_HSL.agedPaper,
-  cardForeground: PALETTE_HSL.deepBrown,
-  primary: PALETTE_HSL.gold,
-  primaryForeground: PALETTE_HSL.parchment,
-  secondary: PALETTE_HSL.warmStone,
-  secondaryForeground: PALETTE_HSL.deepBrown,
-  muted: PALETTE_HSL.paleStone,
-  mutedForeground: PALETTE_HSL.mediumBrown,
-  accent: PALETTE_HSL.agedStone,
-  destructive: PALETTE_HSL.redClay,
-  destructiveForeground: PALETTE_HSL.parchment,
-  border: PALETTE_HSL.warmBeige,
-  chart1: PALETTE_HSL.gold,
-  chart2: PALETTE_HSL.redClay,
-  chart3: PALETTE_HSL.deepBrown,
-  chart4: PALETTE_HSL.warmBeige,
-  chart5: PALETTE_HSL.warmStone,
-  // Semantic
-  success: PALETTE_HSL.heritageGreen,
-  successLight: PALETTE_HSL.heritageGreenLight,
-  info: PALETTE_HSL.deepColonialBlue,
-  infoLight: PALETTE_HSL.vintageBlueGreen,
+  mapBackground: '#f4f1e8',
+  landscape: '#f0ead6',
+  water: '#7fb3d1',
+  waterLabels: '#2c4f66',
+  highway: '#b8860b',
+  highwayStroke: '#8b6914',
+  arterial: '#e8e8e8',
+  arterialStroke: '#a0522d',
+  localRoad: '#ffffff',
+  localRoadStroke: '#c19a6b',
+  roadLabels: '#3e2723',
+  roadLabelsStroke: '#f4f1e8',
+  adminLabels: '#3e2723',
+  adminLabelsStroke: '#f4f1e8',
+  adminBoundaries: '#cd853f',
+  buildings: '#ede0d3',
+  naturalLandscape: '#e8dcc0',
+  naturalLandcover: '#d7c7a8',
+  terrain: '#e6d7c3',
 } as const;
 
 /**
