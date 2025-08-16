@@ -86,9 +86,9 @@ export default function Home() {
             Guía Turística
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Descubre lugares increíbles a tu alrededor con nuestro mapa interactivo y
-            recomendaciones personalizadas. Tu compañera de viaje perfecta para
-            explorar nuevos destinos.
+            Descubre lugares increíbles a tu alrededor con nuestro mapa
+            interactivo y recomendaciones personalizadas. Tu compañera de viaje
+            perfecta para explorar nuevos destinos.
           </p>
           <Link href="/map">
             <Button size="lg" className="text-lg px-8 py-3">
@@ -107,8 +107,8 @@ export default function Home() {
               ¿Por qué elegir Guía Turística?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Hacemos que explorar nuevos lugares sea fácil, seguro y emocionante con
-              tecnología de vanguardia y conocimiento local.
+              Hacemos que explorar nuevos lugares sea fácil, seguro y
+              emocionante con tecnología de vanguardia y conocimiento local.
             </p>
           </div>
 
@@ -137,8 +137,8 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Recibe sugerencias personalizadas basadas en favoritos locales,
-                  lugares de tendencia y joyas escondidas de tu zona.
+                  Recibe sugerencias personalizadas basadas en favoritos
+                  locales, lugares de tendencia y joyas escondidas de tu zona.
                 </p>
               </CardContent>
             </Card>
@@ -152,8 +152,8 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Descubre lugares amados por locales y otros viajeros. Opiniones
-                  reales de personas que han estado allí.
+                  Descubre lugares amados por locales y otros viajeros.
+                  Opiniones reales de personas que han estado allí.
                 </p>
               </CardContent>
             </Card>

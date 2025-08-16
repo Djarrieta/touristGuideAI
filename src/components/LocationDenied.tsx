@@ -20,8 +20,8 @@ export default function LocationDenied({ onRetry }: LocationDeniedProps) {
             Se necesita acceso a la ubicación
           </CardTitle>
           <p className="text-muted-foreground mt-2">
-            Lo sentimos, pero necesitamos acceso a la ubicación para brindarte la mejor
-            experiencia turística.
+            Lo sentimos, pero necesitamos acceso a la ubicación para brindarte
+            la mejor experiencia turística.
           </p>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -43,9 +43,18 @@ export default function LocationDenied({ onRetry }: LocationDeniedProps) {
                 Cómo habilitar la ubicación:
               </h3>
               <ol className="text-sm text-muted-foreground space-y-1">
-                <li>1. Haz clic en el ícono de ubicación en la barra de direcciones del navegador</li>
-                <li>2. Selecciona &quot;Permitir&quot; para el acceso a la ubicación</li>
-                <li>3. Recarga la página o haz clic en &quot;Intentar de nuevo&quot; abajo</li>
+                <li>
+                  1. Haz clic en el ícono de ubicación en la barra de
+                  direcciones del navegador
+                </li>
+                <li>
+                  2. Selecciona &quot;Permitir&quot; para el acceso a la
+                  ubicación
+                </li>
+                <li>
+                  3. Recarga la página o haz clic en &quot;Intentar de
+                  nuevo&quot; abajo
+                </li>
               </ol>
             </div>
           </div>
@@ -66,8 +75,9 @@ export default function LocationDenied({ onRetry }: LocationDeniedProps) {
           </div>
 
           <p className="text-xs text-muted-foreground text-center">
-            No te preocupes: tu privacidad es importante para nosotros. La ubicación
-            solo se usa para mejorar tu experiencia y nunca se almacena.
+            No te preocupes: tu privacidad es importante para nosotros. La
+            ubicación solo se usa para mejorar tu experiencia y nunca se
+            almacena.
           </p>
         </CardContent>
       </Card>

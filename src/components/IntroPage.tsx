@@ -35,7 +35,7 @@ export default function IntroPage({
 
       onLocationGranted();
     } catch (error) {
-  console.warn("Permiso de ubicación denegado:", error);
+      console.warn("Permiso de ubicación denegado:", error);
       onLocationDenied();
     } finally {
       setIsRequesting(false);
@@ -51,7 +51,8 @@ export default function IntroPage({
           </div>
           <CardTitle className="text-2xl font-bold">Guía Turística</CardTitle>
           <p className="text-muted-foreground mt-2">
-            ¡Bienvenido! Te ayudaremos a explorar lugares increíbles a tu alrededor.
+            ¡Bienvenido! Te ayudaremos a explorar lugares increíbles a tu
+            alrededor.
           </p>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -59,10 +60,12 @@ export default function IntroPage({
             <div className="flex items-start gap-3 p-4 bg-accent rounded-lg border border-border">
               <Navigation className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold text-foreground">Acceso a la ubicación</h3>
+                <h3 className="font-semibold text-foreground">
+                  Acceso a la ubicación
+                </h3>
                 <p className="text-sm text-muted-foreground mt-1">
-                  Solicitaremos acceso a tu ubicación para mostrar lugares cercanos
-                  y ofrecer recomendaciones personalizadas.
+                  Solicitaremos acceso a tu ubicación para mostrar lugares
+                  cercanos y ofrecer recomendaciones personalizadas.
                 </p>
               </div>
             </div>
@@ -70,9 +73,12 @@ export default function IntroPage({
             <div className="flex items-start gap-3 p-4 bg-secondary rounded-lg border border-border">
               <AlertCircle className="w-5 h-5 text-secondary-foreground mt-0.5 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold text-secondary-foreground">Tu privacidad</h3>
+                <h3 className="font-semibold text-secondary-foreground">
+                  Tu privacidad
+                </h3>
                 <p className="text-sm text-secondary-foreground mt-1">
-                  Tu ubicación solo se usa para centrar el mapa y no se almacena ni comparte.
+                  Tu ubicación solo se usa para centrar el mapa y no se almacena
+                  ni comparte.
                 </p>
               </div>
             </div>
@@ -87,18 +93,19 @@ export default function IntroPage({
             {isRequesting ? (
               <>
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary-foreground mr-2" />
-        Solicitando ubicación...
+                Solicitando ubicación...
               </>
             ) : (
               <>
                 <Navigation className="w-4 h-4 mr-2" />
-        Permitir acceso a la ubicación
+                Permitir acceso a la ubicación
               </>
             )}
           </Button>
 
           <p className="text-xs text-muted-foreground text-center">
-      Puedes cambiar este permiso en cualquier momento en la configuración de tu navegador.
+            Puedes cambiar este permiso en cualquier momento en la configuración
+            de tu navegador.
           </p>
         </CardContent>
       </Card>
