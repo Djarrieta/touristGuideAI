@@ -17,40 +17,35 @@ export default function LocationDenied({ onRetry }: LocationDeniedProps) {
             <MapPin className="w-8 h-8 text-destructive-foreground" />
           </div>
           <CardTitle className="text-2xl font-bold text-destructive">
-            Location Access Needed
+            Se necesita acceso a la ubicación
           </CardTitle>
           <p className="text-muted-foreground mt-2">
-            We&#39;re sorry, but we need location access to provide the best
-            tourist experience.
+            Lo sentimos, pero necesitamos acceso a la ubicación para brindarte la mejor
+            experiencia turística.
           </p>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="space-y-4">
             <div className="p-4 bg-secondary rounded-lg border border-border">
               <h3 className="font-semibold text-foreground mb-2">
-                Why do we need this?
+                ¿Por qué lo necesitamos?
               </h3>
               <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• Show places near your current location</li>
-                <li>• Provide accurate directions</li>
-                <li>• Personalized recommendations</li>
+                <li>• Mostrar lugares cerca de tu ubicación actual</li>
+                <li>• Brindar indicaciones precisas</li>
+                <li>• Recomendaciones personalizadas</li>
               </ul>
             </div>
 
             <div className="p-4 bg-accent rounded-lg border border-border">
               <h3 className="font-semibold text-foreground mb-2 flex items-center gap-2">
                 <Settings className="w-4 h-4 text-primary" />
-                How to enable location:
+                Cómo habilitar la ubicación:
               </h3>
               <ol className="text-sm text-muted-foreground space-y-1">
-                <li>
-                  1. Click on the location icon in your browser&#39;s address
-                  bar
-                </li>
-                <li>2. Select &quot;Allow&quot; for location access</li>
-                <li>
-                  3. Refresh the page or click &quot;Try Again&quot; below
-                </li>
+                <li>1. Haz clic en el ícono de ubicación en la barra de direcciones del navegador</li>
+                <li>2. Selecciona &quot;Permitir&quot; para el acceso a la ubicación</li>
+                <li>3. Recarga la página o haz clic en &quot;Intentar de nuevo&quot; abajo</li>
               </ol>
             </div>
           </div>
@@ -58,7 +53,7 @@ export default function LocationDenied({ onRetry }: LocationDeniedProps) {
           <div className="space-y-3">
             <Button onClick={onRetry} className="w-full" size="lg">
               <RefreshCw className="w-4 h-4 mr-2" />
-              Try Again
+              Intentar de nuevo
             </Button>
 
             <Button
@@ -66,13 +61,13 @@ export default function LocationDenied({ onRetry }: LocationDeniedProps) {
               className="w-full"
               onClick={() => window.location.reload()}
             >
-              Refresh Page
+              Recargar página
             </Button>
           </div>
 
           <p className="text-xs text-muted-foreground text-center">
-            Don&#39;t worry - your privacy is important to us. Location data is
-            only used to enhance your experience and is never stored.
+            No te preocupes: tu privacidad es importante para nosotros. La ubicación
+            solo se usa para mejorar tu experiencia y nunca se almacena.
           </p>
         </CardContent>
       </Card>

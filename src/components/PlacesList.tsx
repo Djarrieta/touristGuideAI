@@ -23,15 +23,15 @@ export default function PlacesList({ markers, onPlaceClick }: PlacesListProps) {
         <div className="flex items-center justify-between gap-2">
           <CardTitle className="flex items-center gap-2">
             <MapPin className="w-5 h-5" />
-            Places ({markers.length})
+            Lugares ({markers.length})
           </CardTitle>
           <Button
             variant="ghost"
             size="sm"
             onClick={clearVisited}
-            title="Clear visited"
+            title="Limpiar visitados"
           >
-            <RotateCcw className="w-4 h-4 mr-1" /> Reset
+            <RotateCcw className="w-4 h-4 mr-1" /> Reiniciar
           </Button>
         </div>
       </CardHeader>
@@ -84,12 +84,12 @@ export default function PlacesList({ markers, onPlaceClick }: PlacesListProps) {
                     )}
                     {visited && (
                       <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium bg-success-light text-success border-success/30">
-                        <CheckCircle2 className="w-3 h-3" /> visited
+                        <CheckCircle2 className="w-3 h-3" /> visitado
                       </span>
                     )}
                     {isLastSelected && (
                       <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium bg-info-light text-info border-info/30">
-                        <Clock className="w-3 h-3" /> last
+                        <Clock className="w-3 h-3" /> último
                       </span>
                     )}
                   </div>

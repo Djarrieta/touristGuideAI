@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tourist Guide - Interactive Map",
-  description: "Discover amazing places with our interactive tourist guide map",
+  title: "Guía Turística - Mapa interactivo",
+  description: "Descubre lugares increíbles con nuestro mapa turístico interactivo",
 };
 
 export default function RootLayout({
@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+  <html lang="es">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning={true}

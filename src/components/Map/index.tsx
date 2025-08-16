@@ -107,8 +107,8 @@ export default function Map({
             variant="secondary"
             onClick={centerOnUser}
             disabled={!userLocation}
-            aria-label="Center on my location"
-            title="Center on my location"
+            aria-label="Centrar en mi ubicación"
+            title="Centrar en mi ubicación"
           >
             <LocateFixed className="h-5 w-5" />
           </Button>
@@ -116,7 +116,7 @@ export default function Map({
         {userLocation && (
           <Marker
             position={userLocation}
-            title="Your location"
+            title="Tu ubicación"
             icon="/user-location.svg"
             zIndex={999}
           />
