@@ -1,13 +1,25 @@
-import Link from "next/link"
-import { Metadata } from "next"
-import { MapPin, Navigation, Star, Users, Camera, Coffee } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import Link from "next/link";
+import { Metadata } from "next";
+import { MapPin, Navigation, Star, Users, Camera, Coffee } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Tourist Guide - Discover Amazing Places Around You",
-  description: "Explore the world with our interactive tourist guide. Find restaurants, attractions, parks, and events near your location with personalized recommendations and real-time GPS navigation.",
-  keywords: ["tourist guide", "travel", "places", "map", "attractions", "restaurants", "GPS", "navigation", "explore", "discover"],
+  description:
+    "Explore the world with our interactive tourist guide. Find restaurants, attractions, parks, and events near your location with personalized recommendations and real-time GPS navigation.",
+  keywords: [
+    "tourist guide",
+    "travel",
+    "places",
+    "map",
+    "attractions",
+    "restaurants",
+    "GPS",
+    "navigation",
+    "explore",
+    "discover",
+  ],
   authors: [{ name: "Tourist Guide Team" }],
   creator: "Tourist Guide",
   publisher: "Tourist Guide",
@@ -16,29 +28,33 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://touristguide.com'),
+  metadataBase: new URL("https://touristguide.com"),
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
   openGraph: {
     title: "Tourist Guide - Discover Amazing Places Around You",
-    description: "Your perfect travel companion for exploring new destinations with interactive maps and personalized recommendations.",
-    url: 'https://touristguide.com',
-    siteName: 'Tourist Guide',
-    images: [{
-      url: '/og-image.jpg',
-      width: 1200,
-      height: 630,
-      alt: 'Tourist Guide - Interactive Map for Travelers',
-    }],
-    locale: 'en_US',
-    type: 'website',
+    description:
+      "Your perfect travel companion for exploring new destinations with interactive maps and personalized recommendations.",
+    url: "https://touristguide.com",
+    siteName: "Tourist Guide",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Tourist Guide - Interactive Map for Travelers",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
     title: "Tourist Guide - Discover Amazing Places Around You",
-    description: "Your perfect travel companion for exploring new destinations with interactive maps and personalized recommendations.",
-    images: ['/og-image.jpg'],
+    description:
+      "Your perfect travel companion for exploring new destinations with interactive maps and personalized recommendations.",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -46,15 +62,15 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: "your-google-verification-code",
   },
-}
+};
 
 // This is now a server-side page for better SEO
 export default function Home() {
@@ -70,8 +86,9 @@ export default function Home() {
             Tourist Guide
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Discover amazing places around you with our interactive map and personalized recommendations. 
-            Your perfect travel companion for exploring new destinations.
+            Discover amazing places around you with our interactive map and
+            personalized recommendations. Your perfect travel companion for
+            exploring new destinations.
           </p>
           <Link href="/map">
             <Button size="lg" className="text-lg px-8 py-3">
@@ -90,7 +107,8 @@ export default function Home() {
               Why Choose Tourist Guide?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We make exploring new places easy, safe, and exciting with cutting-edge technology and local insights.
+              We make exploring new places easy, safe, and exciting with
+              cutting-edge technology and local insights.
             </p>
           </div>
 
@@ -104,7 +122,8 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Find amazing places near your current location with precise GPS integration and real-time recommendations.
+                  Find amazing places near your current location with precise
+                  GPS integration and real-time recommendations.
                 </p>
               </CardContent>
             </Card>
@@ -118,7 +137,8 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Get personalized suggestions based on local favorites, trending spots, and hidden gems in your area.
+                  Get personalized suggestions based on local favorites,
+                  trending spots, and hidden gems in your area.
                 </p>
               </CardContent>
             </Card>
@@ -132,7 +152,8 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Discover places loved by locals and fellow travelers. Real reviews from real people who've been there.
+                  Discover places loved by locals and fellow travelers. Real
+                  reviews from real people who&#39;ve been there.
                 </p>
               </CardContent>
             </Card>
@@ -148,7 +169,7 @@ export default function Home() {
               Explore Popular Categories
             </h2>
             <p className="text-lg text-muted-foreground">
-              Whatever you're looking for, we'll help you find it
+              Whatever you&#39;re looking for, we&#39;ll help you find it
             </p>
           </div>
 
@@ -156,25 +177,33 @@ export default function Home() {
             <div className="text-center p-6 bg-card rounded-lg shadow hover:shadow-md transition-shadow">
               <Coffee className="w-12 h-12 text-primary mx-auto mb-3" />
               <h3 className="font-semibold text-foreground">Restaurants</h3>
-              <p className="text-sm text-muted-foreground mt-1">Cafes & Dining</p>
+              <p className="text-sm text-muted-foreground mt-1">
+                Cafes & Dining
+              </p>
             </div>
 
             <div className="text-center p-6 bg-card rounded-lg shadow hover:shadow-md transition-shadow">
               <Camera className="w-12 h-12 text-destructive mx-auto mb-3" />
               <h3 className="font-semibold text-foreground">Attractions</h3>
-              <p className="text-sm text-muted-foreground mt-1">Sights & Landmarks</p>
+              <p className="text-sm text-muted-foreground mt-1">
+                Sights & Landmarks
+              </p>
             </div>
 
             <div className="text-center p-6 bg-card rounded-lg shadow hover:shadow-md transition-shadow">
               <MapPin className="w-12 h-12 text-chart-5 mx-auto mb-3" />
               <h3 className="font-semibold text-foreground">Parks</h3>
-              <p className="text-sm text-muted-foreground mt-1">Nature & Recreation</p>
+              <p className="text-sm text-muted-foreground mt-1">
+                Nature & Recreation
+              </p>
             </div>
 
             <div className="text-center p-6 bg-card rounded-lg shadow hover:shadow-md transition-shadow">
               <Users className="w-12 h-12 text-chart-4 mx-auto mb-3" />
               <h3 className="font-semibold text-foreground">Events</h3>
-              <p className="text-sm text-muted-foreground mt-1">Activities & Shows</p>
+              <p className="text-sm text-muted-foreground mt-1">
+                Activities & Shows
+              </p>
             </div>
           </div>
         </div>
@@ -187,10 +216,15 @@ export default function Home() {
             Ready to Explore?
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Start your adventure today and discover amazing places you never knew existed.
+            Start your adventure today and discover amazing places you never
+            knew existed.
           </p>
           <Link href="/map">
-            <Button size="lg" variant="outline" className="border-primary-foreground text-primary bg-primary-foreground hover:bg-muted text-lg px-8 py-3">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-primary-foreground text-primary bg-primary-foreground hover:bg-muted text-lg px-8 py-3"
+            >
               <MapPin className="w-5 h-5 mr-2" />
               Open Interactive Map
             </Button>
@@ -206,7 +240,8 @@ export default function Home() {
             <h3 className="text-xl font-bold">Tourist Guide</h3>
           </div>
           <p className="text-muted-foreground mb-6">
-            Your trusted companion for discovering amazing places around the world.
+            Your trusted companion for discovering amazing places around the
+            world.
           </p>
           <div className="border-t border-border pt-6">
             <p className="text-sm text-muted-foreground">
@@ -216,5 +251,5 @@ export default function Home() {
         </div>
       </footer>
     </div>
-  )
+  );
 }

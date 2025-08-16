@@ -1,47 +1,46 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { MapPin, Navigation, AlertCircle } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
-import { Button } from "./ui/button"
+import { useState } from "react";
+import { MapPin, Navigation, AlertCircle } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { Button } from "./ui/button";
 
 interface IntroPageProps {
-  onLocationGranted: () => void
-  onLocationDenied: () => void
+  onLocationGranted: () => void;
+  onLocationDenied: () => void;
 }
 
-export default function IntroPage({ onLocationGranted, onLocationDenied }: IntroPageProps) {
-  const [isRequesting, setIsRequesting] = useState(false)
+export default function IntroPage({
+  onLocationGranted,
+  onLocationDenied,
+}: IntroPageProps) {
+  const [isRequesting, setIsRequesting] = useState(false);
 
   const requestLocation = async () => {
-    setIsRequesting(true)
+    setIsRequesting(true);
 
     if (!navigator.geolocation) {
-      onLocationDenied()
-      return
+      onLocationDenied();
+      return;
     }
 
     try {
       await new Promise<GeolocationPosition>((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition(
-          resolve,
-          reject,
-          {
-            enableHighAccuracy: true,
-            timeout: 10000,
-            maximumAge: 300000,
-          }
-        )
-      })
+        navigator.geolocation.getCurrentPosition(resolve, reject, {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 300000,
+        });
+      });
 
-      onLocationGranted()
+      onLocationGranted();
     } catch (error) {
-      console.warn('Location permission denied:', error)
-      onLocationDenied()
+      console.warn("Location permission denied:", error);
+      onLocationDenied();
     } finally {
-      setIsRequesting(false)
+      setIsRequesting(false);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
@@ -52,7 +51,7 @@ export default function IntroPage({ onLocationGranted, onLocationDenied }: Intro
           </div>
           <CardTitle className="text-2xl font-bold">Tourist Guide</CardTitle>
           <p className="text-muted-foreground mt-2">
-            Welcome! Let's help you explore amazing places around you.
+            Welcome! Let&#39;s help you explore amazing places around you.
           </p>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -60,9 +59,12 @@ export default function IntroPage({ onLocationGranted, onLocationDenied }: Intro
             <div className="flex items-start gap-3 p-4 bg-accent rounded-lg border border-border">
               <Navigation className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold text-foreground">Location Access</h3>
+                <h3 className="font-semibold text-foreground">
+                  Location Access
+                </h3>
                 <p className="text-sm text-muted-foreground mt-1">
-                  We'll request access to your location to show nearby places and provide personalized recommendations.
+                  We&#39;ll request access to your location to show nearby
+                  places and provide personalized recommendations.
                 </p>
               </div>
             </div>
@@ -70,9 +72,12 @@ export default function IntroPage({ onLocationGranted, onLocationDenied }: Intro
             <div className="flex items-start gap-3 p-4 bg-secondary rounded-lg border border-border">
               <AlertCircle className="w-5 h-5 text-secondary-foreground mt-0.5 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold text-secondary-foreground">Your Privacy</h3>
+                <h3 className="font-semibold text-secondary-foreground">
+                  Your Privacy
+                </h3>
                 <p className="text-sm text-secondary-foreground mt-1">
-                  Your location data is only used to center the map and is not stored or shared.
+                  Your location data is only used to center the map and is not
+                  stored or shared.
                 </p>
               </div>
             </div>
@@ -103,5 +108,5 @@ export default function IntroPage({ onLocationGranted, onLocationDenied }: Intro
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
