@@ -134,22 +134,28 @@ export default function Map({
           const isLastSelected = lastSelectedId === marker.id;
 
           // Use a distinct icon for visited markers when google maps is available
-          const visitedIcon =
-            typeof google !== "undefined" && google.maps
-              ? ({
-                  path: google.maps.SymbolPath.CIRCLE,
-                  scale: isLastSelected ? 10 : 8,
-                  // Use semantic success color for visited markers
-                  fillColor: THEME_COLORS.success,
-                  fillOpacity: 1,
-                  // Highlight last selected with info color, otherwise a darker success tone
-                  strokeColor: isLastSelected
-                    ? THEME_COLORS.info
-                    : THEME_COLORS.success,
-                  strokeOpacity: 1,
-                  strokeWeight: isLastSelected ? 2 : 1,
-                } as google.maps.Symbol)
-              : undefined;
+          // Build a custom symbol icon only when the Google Maps SymbolPath API is ready
+          const visitedIcon = (() => {
+            const g =
+              typeof window !== "undefined"
+                ? (window as unknown as { google?: typeof google }).google
+                : undefined;
+            const circlePath = g?.maps?.SymbolPath?.CIRCLE;
+            if (!circlePath) return undefined;
+            return {
+              path: circlePath,
+              scale: isLastSelected ? 10 : 8,
+              // Use semantic success color for visited markers
+              fillColor: THEME_COLORS.success,
+              fillOpacity: 1,
+              // Highlight last selected with info color, otherwise a darker success tone
+              strokeColor: isLastSelected
+                ? THEME_COLORS.info
+                : THEME_COLORS.success,
+              strokeOpacity: 1,
+              strokeWeight: isLastSelected ? 2 : 1,
+            } as google.maps.Symbol;
+          })();
 
           return (
             <Marker
