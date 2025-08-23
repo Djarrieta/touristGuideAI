@@ -39,8 +39,8 @@ export default function LocationDenied({ onRetry }: LocationDeniedProps) {
               </h3>
               <ol className="text-sm text-muted-foreground space-y-1">
                 <li>1. Haz clic en el ícono de ubicación en la barra de direcciones de tu navegador</li>
-                <li>2. Selecciona "Permitir" para el acceso a la ubicación</li>
-                <li>3. Actualiza la página o haz clic en "Intentar de Nuevo" a continuación</li>
+                <li>2. Selecciona Permitir para el acceso a la ubicación</li>
+                <li>3. Actualiza la página o haz clic en Intentar de Nuevo a continuación</li>
               </ol>
             </div>
           </div>
