@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 interface LocationCoords {
   lat: number
@@ -29,9 +29,9 @@ export function useUserLocation(options: UseUserLocationOptions = {}): UseUserLo
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<GeolocationPositionError | null>(null)
 
-  const mergedOptions = { ...defaultOptions, ...options }
+  const { enableHighAccuracy, timeout, maximumAge } = { ...defaultOptions, ...options }
 
-  const getCurrentPosition = () => {
+  const getCurrentPosition = useCallback(() => {
     setLoading(true)
     setError(null)
 
@@ -63,13 +63,13 @@ export function useUserLocation(options: UseUserLocationOptions = {}): UseUserLo
         setError(error)
         setLoading(false)
       },
-      mergedOptions
+      { enableHighAccuracy, timeout, maximumAge }
     )
-  }
+  }, [enableHighAccuracy, timeout, maximumAge])
 
   useEffect(() => {
     getCurrentPosition()
-  }, [])
+  }, [getCurrentPosition])
 
   return {
     location,
