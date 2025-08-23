@@ -18,35 +18,35 @@ const mockMarkers: MarkerData[] = [
   {
     id: "1",
     position: { lat: 39.0201344, lng: -77.41441 },
-    title: "Coffee Kiosk",
-    description: "A tiny kiosk right next to you for a quick espresso.",
+    title: "Quiosco de café",
+    description: "Un pequeño quiosco a tu lado para un espresso rápido.",
   },
   {
     id: "2",
     position: { lat: 39.02014, lng: -77.4144 },
-    title: "Park Bench",
-    description: "A comfy bench within a few steps.",
+    title: "Banco del parque",
+    description: "Un banco cómodo a pocos pasos.",
   },
   // Slightly farther but still near (~20-40 m)
   {
     id: "3",
     position: { lat: 39.0202, lng: -77.41435 },
-    title: "Info Sign",
-    description: "Local information board nearby.",
+    title: "Señal de información",
+    description: "Panel de información local cercano.",
   },
   // Farther away (~60-120 m)
   {
     id: "4",
     position: { lat: 39.0207, lng: -77.4141 },
-    title: "Playground",
-    description: "Small playground a bit down the path.",
+    title: "Parque infantil",
+    description: "Pequeño parque infantil un poco más adelante.",
   },
   // Clearly far (~300-500 m)
   {
     id: "5",
     position: { lat: 39.0225, lng: -77.413 },
-    title: "Community Center",
-    description: "Larger venue a short walk away.",
+    title: "Centro Comunitario",
+    description: "Un lugar más grande a un corto paseo.",
   },
 ];
 
